@@ -150,7 +150,7 @@
       </div>
     
     <div class="md-source__repository">
-      wohugb/solidty-docs
+      wohugb/solidity-docs
     </div>
   </a>
 
@@ -260,7 +260,7 @@
       </div>
     
     <div class="md-source__repository">
-      wohugb/solidty-docs
+      wohugb/solidity-docs
     </div>
   </a>
 
@@ -310,8 +310,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../solidity-by-example/" title="举例" class="md-nav__link">
-      举例
+    <a href="../solidity-by-example/" title="示例" class="md-nav__link">
+      示例
     </a>
   </li>
 
@@ -440,8 +440,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" title="阻止和事务属性" class="md-nav__link">
-    阻止和事务属性
+  <a href="#_5" title="块和事务属性" class="md-nav__link">
+    块和事务属性
   </a>
   
 </li>
@@ -468,8 +468,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" title="合同报告" class="md-nav__link">
-    合同报告
+  <a href="#_9" title="合约报告" class="md-nav__link">
+    合约报告
   </a>
   
 </li>
@@ -704,8 +704,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" title="阻止和事务属性" class="md-nav__link">
-    阻止和事务属性
+  <a href="#_5" title="块和事务属性" class="md-nav__link">
+    块和事务属性
   </a>
   
 </li>
@@ -732,8 +732,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" title="合同报告" class="md-nav__link">
-    合同报告
+  <a href="#_9" title="合约报告" class="md-nav__link">
+    合约报告
   </a>
   
 </li>
@@ -763,7 +763,6 @@
 <p>字面数可以采用<code>wei</code>，<code>finney</code>，<code>szabo</code>或<code>ether</code>的后缀在Ether的子分类之间进行转换，其中没有后缀的Ether货币数字被假定为Wei，例如， ,<code>2 ether == 2000 finney</code>评估为<code>true</code>。</p>
 <h2 id="_3">时间单位<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>可以使用文字数字后面的<code>seconds</code>，<code>minutes</code>，<code>hours</code>，<code>days</code>，<code>weeks</code>和<code>years</code>等后缀在时间单位之间进行转换，其中秒是基本单位，单位被认为是天真的,以下方法：</p>
-<blockquote>
 <ul>
 <li><code>1 == 1 seconds</code></li>
 <li><code>1 minutes == 60 seconds</code></li>
@@ -772,45 +771,39 @@
 <li><code>1 weeks == 7 days</code></li>
 <li><code>1 years == 365 days</code></li>
 </ul>
-</blockquote>
 <p>请注意，如果您使用这些单位执行日历计算，因为由于<a href="https://en.wikipedia.org/wiki/Leap_second">闰秒</a>，不是每年都等于365天，甚至每天也不会有24小时。
 由于闰秒无法预测，因此必须通过外部oracle更新确切的日历库。</p>
 <p>这些后缀不能应用于变量。
 如果你想解释一些输入变量，例如,日子里，你可以通过以下方式做到这一点：</p>
-<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">daysAfter</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">now</span> <span class="o">&gt;=</span> <span class="nx">start</span> <span class="o">+</span> <span class="nx">daysAfter</span> <span class="o">*</span> <span class="mi">1</span> <span class="nx">days</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// ...</span>
+<div class="codehilite"><pre><span></span>    <span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">daysAfter</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">now</span> <span class="o">&gt;=</span> <span class="nx">start</span> <span class="o">+</span> <span class="nx">daysAfter</span> <span class="o">*</span> <span class="mi">1</span> <span class="nx">days</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// ...</span>
+        <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
 </pre></div>
-
 
 <h2 id="_4">特殊变量和函数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>全局名称空间中总是存在特殊的变量和函数，主要用于提供有关区块链的信息。</p>
-<p>::: {.index}
-block, coinbase, difficulty, number, block;number, timestamp,
-block;timestamp, msg, data, gas, sender, value, now, gas price, origin
-:::</p>
-<h3 id="_5">阻止和事务属性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_5">块和事务属性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>block.blockhash(uint blockNumber) returns (bytes32)</code>: 给定块的哈希值 - 仅适用于256个最新的块，不包括当前的块</li>
+<li><code>block.blockhash(uint blockNumber) returns (bytes32)</code>: 给定块的哈希 - 仅适用于256个最新的块，不包括当前的块</li>
 <li><code>block.coinbase</code> (<code>address</code>): 当前块矿工的地址</li>
-<li><code>block.difficulty</code> (<code>uint</code>): 目前的阻挡困难</li>
-<li><code>block.gaslimit</code> (<code>uint</code>): 当前阻止gaslimit</li>
+<li><code>block.difficulty</code> (<code>uint</code>):  当前块难度</li>
+<li><code>block.gaslimit</code> (<code>uint</code>):    当前块燃料限制</li>
 <li><code>block.number</code> (<code>uint</code>): 当前程序段号</li>
 <li><code>block.timestamp</code> (<code>uint</code>): 当前块时间戳记为自UNIX时期以来的秒数</li>
-<li><code>msg.data</code> (<code>bytes</code>): 完成calldata</li>
-<li><code>msg.gas</code> (<code>uint</code>): 剩余的气体</li>
-<li><code>msg.sender</code> (<code>address</code>): 消息的发送者(当前呼叫)</li>
-<li><code>msg.sig</code> (<code>bytes4</code>): calldata的前四个字节(即功能标识符)</li>
+<li><code>msg.data</code> (<code>bytes</code>): 完成调用数据</li>
+<li><code>msg.gas</code> (<code>uint</code>): 剩余燃料</li>
+<li><code>msg.sender</code> (<code>address</code>): 消息的发送者(当前调用)</li>
+<li><code>msg.sig</code> (<code>bytes4</code>): 调用数据的前四个字节(即功能标识符)</li>
 <li><code>msg.value</code> (<code>uint</code>): 与消息一起发送的wei数量</li>
-<li><code>now</code> (<code>uint</code>): 当前块时间戳(block'timestamp的别名)</li>
-<li><code>tx.gasprice</code> (<code>uint</code>): 交易的天然气价格</li>
-<li><code>tx.origin</code> (<code>address</code>): 交易的发件人(完整的呼叫链)</li>
+<li><code>now</code> (<code>uint</code>): 当前块时间戳(<code>block.timestamp</code>的别名)</li>
+<li><code>tx.gasprice</code> (<code>uint</code>): 交易的燃料价格</li>
+<li><code>tx.origin</code> (<code>address</code>): 交易的发件人(完整的调用链)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>包含<code>msg.sender</code>和<code>msg.value</code>的<code>msg</code>的所有成员的值可以针对每个<strong>外部</strong>函数cal进行更改
+<p>每个外部函数调用都可以更改<code>msg</code>的所有成员的值，包括<code>msg.sender</code>和<code>msg.value</code>。
 这包括调用库函数。</p>
 </div>
 <div class="admonition note">
@@ -851,30 +844,30 @@ keccak256(97, 98, 99)
 <p>请注意，常量将使用存储它们所需的最小字节数打包。
 这意味着，例如<code>keccak256(0)== keccak256(uint8(0))</code>和<code>keccak256(0x12345678)== keccak256(uint32(0x12345678))</code>。</p>
 <p>这可能是因为您在<em>私人区块链</em>上遇到了<code>sha256</code>，<code>ripemd160</code>或<code>ecrecover</code>的Out-of-Gas。
-其原因是这些实现为所谓的预编译合同，并且这些合约仅在他们收到第一条消息(尽管他们的合同代码是硬编码的)后才真正存在。
-发送给不存在的合同的消息更加昂贵，因此执行会出现Out-of-Gas错误。
-解决此问题的方法是首先发送,在您的实际合同中使用它们之前，每个合约都有1个魏。
+其原因是这些实现为所谓的预编译合约，并且这些合约仅在他们收到第一条消息(尽管他们的合约代码是硬编码的)后才真正存在。
+发送给不存在的合约的消息更加昂贵，因此执行会出现Out-of-Gas错误。
+解决此问题的方法是首先发送,在您的实际合约中使用它们之前，每个合约都有1个魏。
 这不是官方或测试网上的问题。</p>
 <h3 id="_8">地址相关<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p><code>&lt;address&gt;.balance</code> (<code>uint256</code>): 魏的<a href="">地址</a>的平衡</p>
-<p><code>&lt;address&gt;.transfer(uint256 amount)</code>: 发给魏的量给<a href="">地址</a>，抛出失败</p>
-<p><code>&lt;address&gt;.send(uint256 amount) returns (bool)</code>: 发送给定数量的魏给<a href="">address</a>，失败时返回<code>false</code></p>
-<p><code>&lt;address&gt;.call(...) returns (bool)</code>: 发出低级<code>CALL</code>，失败时返回<code>false</code></p>
-<p><code>&lt;address&gt;.callcode(...) returns (bool)</code>: 发出低级<code>CALLCODE</code>，失败时返回<code>false</code></p>
-<p><code>&lt;address&gt;.delegatecall(...) returns (bool)</code>: 发出低级<code>DELEGATECALL</code>，失败时返回<code>false</code></p>
-<p>有关更多信息，请参阅<a href="">地址</a>部分。</p>
+<p><code>&lt;address&gt;.balance</code> (<code>uint256</code>): 魏的<a href="https://solidity.readthedocs.io/en/develop/types.html#address">地址</a>的平衡</p>
+<p><code>&lt;address&gt;.transfer(uint256 amount)</code>: 发送给定量的魏到<a href="https://solidity.readthedocs.io/en/develop/types.html#address">地址</a>，发生故障，转发2300天然气津贴，不可调整</p>
+<p><code>&lt;address&gt;.send(uint256 amount) returns (bool)</code>: 发送给定数量的魏给<a href="https://solidity.readthedocs.io/en/develop/types.html#address">address</a>，失败返回<code>false</code></p>
+<p><code>&lt;address&gt;.call(...) returns (bool)</code>: 发出低级<code>CALL</code>，失败返回<code>false</code></p>
+<p><code>&lt;address&gt;.callcode(...) returns (bool)</code>: 发出低级<code>CALLCODE</code>，失败返回<code>false</code></p>
+<p><code>&lt;address&gt;.delegatecall(...) returns (bool)</code>: 发出低级<code>DELEGATECALL</code>，失败返回<code>false</code></p>
+<p>有关更多信息，请参阅<a href="https://solidity.readthedocs.io/en/develop/types.html#address">地址</a>部分。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>使用<code>send</code>有一些危险：如果调用堆栈深度为1024(调用程序总是强制执行此操作)，则传输将失败，并且如果收件人用完了，它也会失败。
-所以为了安全的以太网传输，请务必检查<code>send</code>的返回值，使用<code>transfer</code>或甚至更好：在接收方提取资金的地方使用一种模式。</p>
+所以为了安全的以太网传输，请务必检查<code>send</code>的返回值，最好使用<code>transfer</code>：在接收方提取资金的地方使用的一种模式。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>callcode</code>的使用是不鼓励的，将来会被删除。</p>
 </div>
-<h3 id="_9">合同报告<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p><code>this</code>(当前合同的类型)：当前合同，明确转换为<a href="">地址</a></p>
-<p><code>selfdestruct(address recipient)</code>：销毁当前合同，将资金发送给给定的<a href="">地址</a></p>
+<h3 id="_9">合约报告<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><code>this</code>(当前合约的类型)：当前合约，明确转换为<a href="https://solidity.readthedocs.io/en/develop/types.html#address">地址</a></p>
+<p><code>selfdestruct(address recipient)</code>：销毁当前合约，将资金发送给给定的<a href="https://solidity.readthedocs.io/en/develop/types.html#address">地址</a></p>
 <p><code>suicide(address recipient)</code>: 别名<code>selfdestruct</code></p>
 <p>此外，当前合约的所有功能都可以直接包含当前功能。</p>
                 
