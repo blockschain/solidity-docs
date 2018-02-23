@@ -1,0 +1,76 @@
+site_name: Solidity文档
+site_description: Solidity中文文档
+site_author: Nosy
+copyright: '版权 &copy; 2018 -  wohugb.github.io'
+
+repo_name: wohugb/solidty-docs
+repo_url: https://github.com/wohugb/solidity-docs
+edit_uri: ""
+
+theme:
+  name: material
+
+  include_search_page: false
+  search_index_only: true
+
+  language: zh
+  feature:
+    tabs: true
+  palette:
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/images/favicon.png
+  logo:
+    icon: "\uE80C"
+  extra_css: [assets/stylesheets/extra.css]
+extra:
+  social:
+    - type: globe
+      link: http://wohugb.github.io
+    - type: github-alt
+      link: https://github.com/wohugb
+    - type: twitter
+      link: https://twitter.com/wohugb
+    - type: linkedin
+      link: https://linkedin.com/in/wohugb
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      linenums: false
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+
+pages:
+  - 简介: index.md
+  - 智能合约: introduction-to-smart-contracts.md
+  - 安装编译器: installing-solidity.md
+  - 举例: solidity-by-example.md
+  - 深入:
+    - 概述: solidity-in-depth.md
+    - 源文件布局: layout-of-source-files.md
+    - 合约结构: structure-of-a-contract.md
+    - 类型: types.md
+    - 单位和全局可用变量: units-and-global-variables.md
+    - 表达式和控制结构: control-structures.md
+    - 合约: contracts.md
+    - 汇编: assembly.md
+    - 杂项: miscellaneous.md
+  - 安全考虑: security-considerations.md
+  - 使用编译器: using-the-compiler.md
+  - 合约元数据: contracts.md
+  - 接口规范: abi-spec.md
+  - JULIA: julia.md
+  - 样式指南: style-guide.md
+  - 常见模式: common-patterns.md
+  - 错误列表: bugs.md
+  - 贡献: contributing.md
+  - 常见问题: frequently-asked-questions.md
+
