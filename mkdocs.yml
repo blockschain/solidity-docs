@@ -3,7 +3,7 @@ site_description: Solidity中文文档
 site_author: Nosy
 copyright: '版权 &copy; 2018 -  wohugb.github.io'
 
-repo_name: wohugb/solidty-docs
+repo_name: wohugb/solidity-docs
 repo_url: https://github.com/wohugb/solidity-docs
 edit_uri: ""
 
@@ -52,7 +52,7 @@ pages:
   - 简介: index.md
   - 智能合约: introduction-to-smart-contracts.md
   - 安装编译器: installing-solidity.md
-  - 举例: solidity-by-example.md
+  - 示例: solidity-by-example.md
   - 深入:
     - 概述: solidity-in-depth.md
     - 源文件布局: layout-of-source-files.md

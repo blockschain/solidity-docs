@@ -1,36 +1,37 @@
-# 以实例说明
+# 示例
 
 ## 投票
 
-以下合同非常复杂，但展示了很多Solidity的功能。
-它执行投票合同。
+以下合约非常复杂，但展示了很多Solidity的功能。
+它执行投票合约。
 当然，电子投票的主要问题是如何为正确的人员分配投票权，以及如何防止操纵。
 我们不会在这里解决所有问题，但至少我们会展示如何进行委派投票，以便计票自动且完全透明。
 
-这个想法是为每个选票创建一个合同，为每个选项提供一个简称。
-然后，担任主席的合同创建者将分别给予每个地址的投票权。
+这个想法是为每个选票创建一个合约，为每个选项提供一个简称。
+然后，担任主席的合约创建者将分别给予每个地址的投票权。
 
 然后，地址背后的人可以选择自己投票，或者将他们的投票委托给他们信任的人.
 
-在投票时间结束时，“winningProposal（）”将返回投票数最多的提案.
+在投票时间结束时，“winningProposal()”将返回投票数最多的提案.
 
+```js
     pragma solidity ^0.4.16;
 
-    // @title Voting with delegation.
+    // @title 委托投票.
     contract Ballot {
         // 这声明了一个新的复杂类型，稍后将用于变量。
         // 它将代表一个单一的选民.
         struct Voter {
-            uint weight; // weight is accumulated by delegation
-            bool voted;  // if true, that person already voted
-            address delegate; // person delegated to
-            uint vote;   // index of the voted proposal
+            uint weight; // 委托团积累体重
+            bool voted;  // 如果真的，那个人已经投了票
+            address delegate; // 被授权的人
+            uint vote;   // 投票提案的索引
         }
 
         // 这是针对单个提案的类型.
         struct Proposal {
-            bytes32 name;   // short name (up to 32 bytes)
-            uint voteCount; // number of accumulated votes
+            bytes32 name;   // 短名称(最多32个字节)
+            uint voteCount; // 累计投票数
         }
 
         address public chairperson;
@@ -48,9 +49,9 @@
 
             // 对于每个提供的提议名称，创建一个新提议对象并将其添加到数组的末尾.
             for (uint i = 0; i < proposalNames.length; i++) {
-                // `Proposal({...})` creates a temporary
-                // Proposal object and `proposals.push(...)`
-                // appends it to the end of `proposals`.
+                // `Proposal({...})` 创建一个临时的
+                // 提案对象和`proposals.push(...)`
+                // 将它附加到`proposals`的末尾.
                 proposals.push(Proposal({
                     name: proposalNames[i],
                     voteCount: 0
@@ -59,11 +60,11 @@
         }
 
         // 赋予“选民”投票权.
-        // 只能由`委员长'调用.
+        // 只能由`委员长`调用.
         function giveRightToVote(address voter) public {
-            // 如果`require`的参数评估为'false'，它会终止并恢复对状态的所有更改，并返回到以太平衡.
+            // 如果`require`的参数评估为`false`，它会终止并恢复对状态的所有更改，并返回到以太平衡.
             // 如果函数被错误地调用，通常使用它是一个好主意。
-            // 但要小心，这也将消耗所有提供的天然气（这是计划在未来改变）。
+            // 但要小心，这也将消耗所有提供的天然气(这是计划在未来改变)。
             require((msg.sender == chairperson) && !voters[voter].voted && (voters[voter].weight == 0));
             voters[voter].weight = 1;
         }
@@ -78,7 +79,7 @@
             require(to != msg.sender);
 
             // 只要`to`也委派给代表团。,一般来说，这样的循环是非常危险的，因为如果它们运行时间过长，它们可能需要比块中可用的更多的气体。
-            // 在这种情况下，代表团将不会执行，但在其他情况下，此类循环可能会导致合同“完全停滞”。
+            // 在这种情况下，代表团将不会执行，但在其他情况下，此类循环可能会导致合约“完全停滞”。
             while (voters[to].delegate != address(0)) {
                 to = voters[to].delegate;
 
@@ -99,14 +100,14 @@
             }
         }
 
-        // 将您的投票（包括授予您的投票）提交给提案 `proposals[proposal].name`.
+        // 将您的投票(包括授予您的投票)提交给提案 `proposals[proposal].name`.
         function vote(uint proposal) public {
             Voter storage sender = voters[msg.sender];
             require(!sender.voted);
             sender.voted = true;
             sender.vote = proposal;
 
-            // 如果`提议'超出了数组范围，这将自动抛出并恢复所有更改。
+            // 如果`提议`超出了数组范围，这将自动抛出并恢复所有更改。
             proposals[proposal].voteCount += sender.weight;
         }
 
@@ -123,36 +124,38 @@
             }
         }
 
-        // 调用winningProposal（）函数以获取提议数组中包含的获胜者的索引，然后返回获胜者的名称
+        // 调用winningProposal()函数以获取提议数组中包含的获胜者的索引，然后返回获胜者的名称
         function winnerName() public view
                 returns (bytes32 winnerName)
         {
             winnerName = proposals[winningProposal()].name;
         }
     }
+```
 
 ### 可能的改进
 
 目前，需要许多交易才能将投票权赋予所有参与者。
 你能想出更好的方法吗？
 
-## 盲目拍卖
+## 暗标
 
-在本节中，我们将展示在以太坊创建一个完全失明的拍卖合同是多么容易。
-我们将从公开拍卖开始，每个人都可以看到所做的投标，然后将此合同扩展到盲目拍卖，在竞标期结束之前无法看到实际出价。
+在本节中，我们将展示在以太坊创建一个完全失明的拍卖合约是多么容易。
+我们将从公开拍卖开始，每个人都可以看到所做的投标，然后将此合约扩展到盲目拍卖，在竞标期结束之前无法看到实际出价。
 
 ### 简单的公开拍卖
 
-以下简单的拍卖合同的总体思路是每个人都可以在投标期内发送他们的出价。
+以下简单的拍卖合约的总体思路是每个人都可以在投标期内发送他们的出价。
 出价已经包括发送金钱/以太币以使投标人与他们的出价相结合。
 如果提高最高出价，以前出价最高的出价者就可以拿回她的钱了。
-在投标期结束后，合同必须手动为受益人接收他的钱 - 合同不能激活自己。
+在投标期结束后，合约必须手动为受益人接收他的钱 - 合约不能激活自己。
 
+```js
     pragma solidity ^0.4.11;
 
     contract SimpleAuction {
         // 拍卖的参数.
-        // 时间是绝对的unix时间戳（自1970-01-01以来的秒数）或以秒为单位的时间段.
+        // 时间是绝对的unix时间戳(自1970-01-01以来的秒数)或以秒为单位的时间段.
         address public beneficiary;
         uint public auctionEnd;
 
@@ -185,7 +188,7 @@
         // 与此次交易一起发送的价格与拍卖竞标。
         // 如果拍卖没有赢得，价值只会被退还。
         function bid() public payable {
-            // 调用winningProposal（）函数以获取提议数组中包含的获胜者的索引，然后返回获胜者的名称
+            // 调用winningProposal()函数以获取提议数组中包含的获胜者的索引，然后返回获胜者的名称
             // 为了能够接收以太网，功能需要关键字。
 
             // 如果投标期结束，请恢复通话。
@@ -195,7 +198,7 @@
             require(msg.value > highestBid);
 
             if (highestBidder != 0) {
-                // 通过仅使用highestBidder.send（highestBid）发回资金是一种安全风险，因为它可以执行不受信任的合同。
+                // 通过仅使用highestBidder.send(highestBid)发回资金是一种安全风险，因为它可以执行不受信任的合约。
                 // 让收款人自己收回钱总是比较安全的。
                 pendingReturns[highestBidder] += highestBid;
             }
@@ -222,49 +225,45 @@
 
         // 结束拍卖并将最高出价发送给受益人。
         function auctionEnd() public {
-            // 将与其他合同交互的功能（即他们称为功能或发送以太网）分为三个阶段是一个很好的指导原则:
-            // 1.
-检查条件
-            // 2.
-执行行动（潜在的变化条件）
-            // 3.
-与其他合同进行交互
-            // 如果这些阶段混在一起，另一个合同可以回拨到当前合同中，并且修改状态或原因效应（以太付款）将被执行多次
-            // 如果内部调用的职能包括与外部合同的交互，则他们也必须被视为与外部合同的交互。
+            // 将与其他合约交互的功能(即他们称为功能或发送以太网)分为三个阶段是一个很好的指导原则:
+            // 1.检查条件
+            // 2.执行行动(潜在的变化条件)
+            // 3.与其他合约进行交互
+            // 如果这些阶段混在一起，另一个合约可以回拨到当前合约中，并且修改状态或原因效应(以太付款)将被执行多次
+            // 如果内部调用的职能包括与外部合约的交互，则他们也必须被视为与外部合约的交互。
 
-            // 1.
-条件
+            // 1.条件
             require(now >= auctionEnd); // auction did not yet end
             require(!ended); // this function has already been called
 
-            // 2.
-效果
+            // 2.效果
             ended = true;
             AuctionEnded(highestBidder, highestBid);
 
-            // 3.
-相互作用
+            // 3.相互作用
             beneficiary.transfer(highestBid);
         }
     }
+```
 
-### 盲目拍卖
+### 暗标
 
 以前的公开拍卖会延伸到以下的盲目拍卖。
 盲目拍卖的优势在于投标期结束时没有时间压力。
 在一个透明的计算平台上创建一个盲目拍卖可能听起来像是一个矛盾，但是密码学可以解救。
 
 在投标期间，投标人实际上并没有发出她的投标，而只是一个散列版本。
-由于目前认为实际上不可能找到两个（足够长）的哈希值相等的值，因此投标人承诺通过该投标。
-投标结束后，投标人必须公开他们的投标：他们将他们的价值未加密并且合同检查散列值与投标期间提供的散列值相同。
+由于目前认为实际上不可能找到两个(足够长)的哈希值相等的值，因此投标人承诺通过该投标。
+投标结束后，投标人必须公开他们的投标：他们将他们的价值未加密并且合约检查散列值与投标期间提供的散列值相同。
 
 另一个挑战是如何在同一时间使拍卖具有约束力和盲目性：在赢得拍卖后阻止投标人不发送货币的唯一方法是让她在拍卖中一并发送。
 既然价值转移不能在以太坊蒙蔽，任何人都可以看到价值。
 
-以下合同通过接受任何大于最高出价的值来解决此问题。
-因为这当然只能在披露阶段进行检查，所以有些出价可能是无效的，这是有意的（它甚至提供了一个明确的标记，用高价值的转让放置无效的出价）:
+以下合约通过接受任何大于最高出价的值来解决此问题。
+因为这当然只能在披露阶段进行检查，所以有些出价可能是无效的，这是有意的(它甚至提供了一个明确的标记，用高价值的转让放置无效的出价):
 投标人可以通过设置几个高或低的无效投标来混淆竞争。
 
+```js
     pragma solidity ^0.4.11;
 
     contract BlindAuction {
@@ -303,7 +302,7 @@
             revealEnd = biddingEnd + _revealTime;
         }
 
-        // 用'_blindedBid` = keccak256（价值，假，秘密）.
+        // 用`_blindedBid` = keccak256(价值，假，秘密).
         // 如果投标在披露阶段正确显示，则只会退还已发送的以太币。
         // 如果与投标一起发送的以太币至少为“有价值”且“假”不真实，则投标有效。
         // 将“假”设置为真，并发送不确切的金额是隐藏实际出价但仍然需要存款的方法。
@@ -356,7 +355,7 @@
             msg.sender.transfer(refund);
         }
 
-        // 这是一个“内部”功能，这意味着它只能从合同本身（或派生合同）中调用。
+        // 这是一个“内部”功能，这意味着它只能从合约本身(或派生合约)中调用。
         function placeBid(address bidder, uint value) internal
                 returns (bool success)
         {
@@ -376,7 +375,7 @@
         function withdraw() public {
             uint amount = pendingReturns[msg.sender];
             if (amount > 0) {
-                // 将此设置为零是很重要的，因为接收者可以在`transfer`返回之前再次调用此函数作为接收呼叫的一部分（请参阅上面关于条件 - >效果 - >交互的注释）。
+                // 将此设置为零是很重要的，因为接收者可以在`transfer`返回之前再次调用此函数作为接收呼叫的一部分(请参阅上面关于条件 - >效果 - >交互的注释)。
                 pendingReturns[msg.sender] = 0;
 
                 msg.sender.transfer(amount);
@@ -394,9 +393,11 @@
             beneficiary.transfer(highestBid);
         }
     }
+```
 
 ## 安全远程购买
 
+```js
     pragma solidity ^0.4.11;
 
     contract Purchase {
@@ -440,7 +441,7 @@
         event ItemReceived();
 
         // 放弃购买并收回乙醚。
-        // 只能在合同被锁定之前由卖方调用。
+        // 只能在合约被锁定之前由卖方调用。
         function abort()
             public
             onlySeller
@@ -465,7 +466,7 @@
             state = State.Locked;
         }
 
-        // 确认您（买家）收到该物品。
+        // 确认您(买家)收到该物品。
         // 这将释放锁定的以太。
         function confirmReceived()
             public
@@ -482,7 +483,8 @@
             seller.transfer(this.balance);
         }
     }
+```
 
 ## 微支付渠道
 
-要写.
+待编辑.

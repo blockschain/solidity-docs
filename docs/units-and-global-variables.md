@@ -8,12 +8,12 @@
 
 可以使用文字数字后面的`seconds`，`minutes`，`hours`，`days`，`weeks`和`years`等后缀在时间单位之间进行转换，其中秒是基本单位，单位被认为是天真的,以下方法：
 
-> - `1 == 1 seconds`
-> - `1 minutes == 60 seconds`
-> - `1 hours == 60 minutes`
-> - `1 days == 24 hours`
-> - `1 weeks == 7 days`
-> - `1 years == 365 days`
+* `1 == 1 seconds`
+* `1 minutes == 60 seconds`
+* `1 hours == 60 minutes`
+* `1 days == 24 hours`
+* `1 weeks == 7 days`
+* `1 years == 365 days`
 
 请注意，如果您使用这些单位执行日历计算，因为由于[闰秒](https://en.wikipedia.org/wiki/Leap_second)，不是每年都等于365天，甚至每天也不会有24小时。
 由于闰秒无法预测，因此必须通过外部oracle更新确切的日历库。
@@ -21,41 +21,38 @@
 这些后缀不能应用于变量。
 如果你想解释一些输入变量，例如,日子里，你可以通过以下方式做到这一点：
 
+```js
     function f(uint start, uint daysAfter) public {
         if (now >= start + daysAfter * 1 days) {
           // ...
         }
     }
+```
 
 ## 特殊变量和函数
 
 全局名称空间中总是存在特殊的变量和函数，主要用于提供有关区块链的信息。
 
-::: {.index}
-block, coinbase, difficulty, number, block;number, timestamp,
-block;timestamp, msg, data, gas, sender, value, now, gas price, origin
-:::
+### 块和事务属性
 
-### 阻止和事务属性
-
-- `block.blockhash(uint blockNumber) returns (bytes32)`: 给定块的哈希值 - 仅适用于256个最新的块，不包括当前的块
-- `block.coinbase` (`address`): 当前块矿工的地址
-- `block.difficulty` (`uint`): 目前的阻挡困难
-- `block.gaslimit` (`uint`): 当前阻止gaslimit
-- `block.number` (`uint`): 当前程序段号
-- `block.timestamp` (`uint`): 当前块时间戳记为自UNIX时期以来的秒数
-- `msg.data` (`bytes`): 完成calldata
-- `msg.gas` (`uint`): 剩余的气体
-- `msg.sender` (`address`): 消息的发送者(当前呼叫)
-- `msg.sig` (`bytes4`): calldata的前四个字节(即功能标识符)
-- `msg.value` (`uint`): 与消息一起发送的wei数量
-- `now` (`uint`): 当前块时间戳(block'timestamp的别名)
-- `tx.gasprice` (`uint`): 交易的天然气价格
-- `tx.origin` (`address`): 交易的发件人(完整的呼叫链)
+* `block.blockhash(uint blockNumber) returns (bytes32)`: 给定块的哈希 - 仅适用于256个最新的块，不包括当前的块
+* `block.coinbase` (`address`): 当前块矿工的地址
+* `block.difficulty` (`uint`):  当前块难度
+* `block.gaslimit` (`uint`):    当前块燃料限制
+* `block.number` (`uint`): 当前程序段号
+* `block.timestamp` (`uint`): 当前块时间戳记为自UNIX时期以来的秒数
+* `msg.data` (`bytes`): 完成调用数据
+* `msg.gas` (`uint`): 剩余燃料
+* `msg.sender` (`address`): 消息的发送者(当前调用)
+* `msg.sig` (`bytes4`): 调用数据的前四个字节(即功能标识符)
+* `msg.value` (`uint`): 与消息一起发送的wei数量
+* `now` (`uint`): 当前块时间戳(`block.timestamp`的别名)
+* `tx.gasprice` (`uint`): 交易的燃料价格
+* `tx.origin` (`address`): 交易的发件人(完整的调用链)
 
 !!! note
 
-    包含`msg.sender`和`msg.value`的`msg`的所有成员的值可以针对每个**外部**函数cal进行更改
+    每个外部函数调用都可以更改`msg`的所有成员的值，包括`msg.sender`和`msg.value`。
     这包括调用库函数。
 
 !!! note
@@ -111,41 +108,41 @@ block;timestamp, msg, data, gas, sender, value, now, gas price, origin
 这意味着，例如`keccak256(0)== keccak256(uint8(0))`和`keccak256(0x12345678)== keccak256(uint32(0x12345678))`。
 
 这可能是因为您在*私人区块链*上遇到了`sha256`，`ripemd160`或`ecrecover`的Out-of-Gas。
-其原因是这些实现为所谓的预编译合同，并且这些合约仅在他们收到第一条消息(尽管他们的合同代码是硬编码的)后才真正存在。
-发送给不存在的合同的消息更加昂贵，因此执行会出现Out-of-Gas错误。
-解决此问题的方法是首先发送,在您的实际合同中使用它们之前，每个合约都有1个魏。
+其原因是这些实现为所谓的预编译合约，并且这些合约仅在他们收到第一条消息(尽管他们的合约代码是硬编码的)后才真正存在。
+发送给不存在的合约的消息更加昂贵，因此执行会出现Out-of-Gas错误。
+解决此问题的方法是首先发送,在您的实际合约中使用它们之前，每个合约都有1个魏。
 这不是官方或测试网上的问题。
 
 ### 地址相关
 
-`<address>.balance` (`uint256`): 魏的[地址]()的平衡
+`<address>.balance` (`uint256`): 魏的[地址](https://solidity.readthedocs.io/en/develop/types.html#address)的平衡
 
-`<address>.transfer(uint256 amount)`: 发给魏的量给[地址]()，抛出失败
+`<address>.transfer(uint256 amount)`: 发送给定量的魏到[地址](https://solidity.readthedocs.io/en/develop/types.html#address)，发生故障，转发2300天然气津贴，不可调整
 
-`<address>.send(uint256 amount) returns (bool)`: 发送给定数量的魏给[address]()，失败时返回`false`
+`<address>.send(uint256 amount) returns (bool)`: 发送给定数量的魏给[address](https://solidity.readthedocs.io/en/develop/types.html#address)，失败返回`false`
 
-`<address>.call(...) returns (bool)`: 发出低级`CALL`，失败时返回`false`
+`<address>.call(...) returns (bool)`: 发出低级`CALL`，失败返回`false`
 
-`<address>.callcode(...) returns (bool)`: 发出低级`CALLCODE`，失败时返回`false`
+`<address>.callcode(...) returns (bool)`: 发出低级`CALLCODE`，失败返回`false`
 
-`<address>.delegatecall(...) returns (bool)`: 发出低级`DELEGATECALL`，失败时返回`false`
+`<address>.delegatecall(...) returns (bool)`: 发出低级`DELEGATECALL`，失败返回`false`
 
-有关更多信息，请参阅[地址]()部分。
+有关更多信息，请参阅[地址](https://solidity.readthedocs.io/en/develop/types.html#address)部分。
 
 !!! Warning
 
     使用`send`有一些危险：如果调用堆栈深度为1024(调用程序总是强制执行此操作)，则传输将失败，并且如果收件人用完了，它也会失败。
-    所以为了安全的以太网传输，请务必检查`send`的返回值，使用`transfer`或甚至更好：在接收方提取资金的地方使用一种模式。
+    所以为了安全的以太网传输，请务必检查`send`的返回值，最好使用`transfer`：在接收方提取资金的地方使用的一种模式。
 
 !!! note
 
     `callcode`的使用是不鼓励的，将来会被删除。
 
-### 合同报告
+### 合约报告
 
-`this`(当前合同的类型)：当前合同，明确转换为[地址]()
+`this`(当前合约的类型)：当前合约，明确转换为[地址](https://solidity.readthedocs.io/en/develop/types.html#address)
 
-`selfdestruct(address recipient)`：销毁当前合同，将资金发送给给定的[地址]()
+`selfdestruct(address recipient)`：销毁当前合约，将资金发送给给定的[地址](https://solidity.readthedocs.io/en/develop/types.html#address)
 
 `suicide(address recipient)`: 别名`selfdestruct`
 

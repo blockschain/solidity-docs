@@ -1,0 +1,1331 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Solidity中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.5">
+    
+    
+      
+        <title>示例 - Solidity文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.bcabdff3.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Solidity文档" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Solidity文档
+              </span>
+              <span class="md-header-nav__topic">
+                示例
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/solidity-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/solidity-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="简介" class="md-tabs__link md-tabs__link--active">
+        简介
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../solidity-in-depth/" title="深入" class="md-tabs__link">
+          深入
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Solidity文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/solidity-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/solidity-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../introduction-to-smart-contracts/" title="智能合约" class="md-nav__link">
+      智能合约
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../installing-solidity/" title="安装编译器" class="md-nav__link">
+      安装编译器
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        示例
+      </label>
+    
+    <a href="./" title="示例" class="md-nav__link md-nav__link--active">
+      示例
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="投票" class="md-nav__link">
+    投票
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="可能的改进" class="md-nav__link">
+    可能的改进
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="暗标" class="md-nav__link">
+    暗标
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="简单的公开拍卖" class="md-nav__link">
+    简单的公开拍卖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="暗标" class="md-nav__link">
+    暗标
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="安全远程购买" class="md-nav__link">
+    安全远程购买
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="微支付渠道" class="md-nav__link">
+    微支付渠道
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      深入
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        深入
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../solidity-in-depth/" title="概述" class="md-nav__link">
+      概述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../layout-of-source-files/" title="源文件布局" class="md-nav__link">
+      源文件布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../structure-of-a-contract/" title="合约结构" class="md-nav__link">
+      合约结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../types/" title="类型" class="md-nav__link">
+      类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../units-and-global-variables/" title="单位和全局可用变量" class="md-nav__link">
+      单位和全局可用变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../control-structures/" title="表达式和控制结构" class="md-nav__link">
+      表达式和控制结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../contracts/" title="合约" class="md-nav__link">
+      合约
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../assembly/" title="汇编" class="md-nav__link">
+      汇编
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../miscellaneous/" title="杂项" class="md-nav__link">
+      杂项
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security-considerations/" title="安全考虑" class="md-nav__link">
+      安全考虑
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../using-the-compiler/" title="使用编译器" class="md-nav__link">
+      使用编译器
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contracts/" title="合约元数据" class="md-nav__link">
+      合约元数据
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../abi-spec/" title="接口规范" class="md-nav__link">
+      接口规范
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../julia/" title="JULIA" class="md-nav__link">
+      JULIA
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../style-guide/" title="样式指南" class="md-nav__link">
+      样式指南
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../common-patterns/" title="常见模式" class="md-nav__link">
+      常见模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../bugs/" title="错误列表" class="md-nav__link">
+      错误列表
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="贡献" class="md-nav__link">
+      贡献
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../frequently-asked-questions/" title="常见问题" class="md-nav__link">
+      常见问题
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="投票" class="md-nav__link">
+    投票
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="可能的改进" class="md-nav__link">
+    可能的改进
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="暗标" class="md-nav__link">
+    暗标
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="简单的公开拍卖" class="md-nav__link">
+    简单的公开拍卖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="暗标" class="md-nav__link">
+    暗标
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="安全远程购买" class="md-nav__link">
+    安全远程购买
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="微支付渠道" class="md-nav__link">
+    微支付渠道
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">投票<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>以下合约非常复杂，但展示了很多Solidity的功能。
+它执行投票合约。
+当然，电子投票的主要问题是如何为正确的人员分配投票权，以及如何防止操纵。
+我们不会在这里解决所有问题，但至少我们会展示如何进行委派投票，以便计票自动且完全透明。</p>
+<p>这个想法是为每个选票创建一个合约，为每个选项提供一个简称。
+然后，担任主席的合约创建者将分别给予每个地址的投票权。</p>
+<p>然后，地址背后的人可以选择自己投票，或者将他们的投票委托给他们信任的人.</p>
+<p>在投票时间结束时，“winningProposal()”将返回投票数最多的提案.</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.16</span><span class="p">;</span>
+
+    <span class="c1">// @title 委托投票.</span>
+    <span class="nx">contract</span> <span class="nx">Ballot</span> <span class="p">{</span>
+        <span class="c1">// 这声明了一个新的复杂类型，稍后将用于变量。</span>
+        <span class="c1">// 它将代表一个单一的选民.</span>
+        <span class="nx">struct</span> <span class="nx">Voter</span> <span class="p">{</span>
+            <span class="nx">uint</span> <span class="nx">weight</span><span class="p">;</span> <span class="c1">// 委托团积累体重</span>
+            <span class="nx">bool</span> <span class="nx">voted</span><span class="p">;</span>  <span class="c1">// 如果真的，那个人已经投了票</span>
+            <span class="nx">address</span> <span class="nx">delegate</span><span class="p">;</span> <span class="c1">// 被授权的人</span>
+            <span class="nx">uint</span> <span class="nx">vote</span><span class="p">;</span>   <span class="c1">// 投票提案的索引</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 这是针对单个提案的类型.</span>
+        <span class="nx">struct</span> <span class="nx">Proposal</span> <span class="p">{</span>
+            <span class="nx">bytes32</span> <span class="nx">name</span><span class="p">;</span>   <span class="c1">// 短名称(最多32个字节)</span>
+            <span class="nx">uint</span> <span class="nx">voteCount</span><span class="p">;</span> <span class="c1">// 累计投票数</span>
+        <span class="p">}</span>
+
+        <span class="nx">address</span> <span class="kr">public</span> <span class="nx">chairperson</span><span class="p">;</span>
+
+        <span class="c1">// 这声明了一个状态变量，为每个可能的地址存储一个`Voter`结构.</span>
+        <span class="nx">mapping</span><span class="p">(</span><span class="nx">address</span> <span class="p">=&gt;</span> <span class="nx">Voter</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">voters</span><span class="p">;</span>
+
+        <span class="c1">// 动态大小的`Proposal`结构数组.</span>
+        <span class="nx">Proposal</span><span class="p">[]</span> <span class="kr">public</span> <span class="nx">proposals</span><span class="p">;</span>
+
+        <span class="c1">// 创建一个新的选票来选择`proposalNames`中的一个.</span>
+        <span class="kd">function</span> <span class="nx">Ballot</span><span class="p">(</span><span class="nx">bytes32</span><span class="p">[]</span> <span class="nx">proposalNames</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="nx">chairperson</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">;</span>
+            <span class="nx">voters</span><span class="p">[</span><span class="nx">chairperson</span><span class="p">].</span><span class="nx">weight</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+            <span class="c1">// 对于每个提供的提议名称，创建一个新提议对象并将其添加到数组的末尾.</span>
+            <span class="k">for</span> <span class="p">(</span><span class="nx">uint</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">proposalNames</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// `Proposal({...})` 创建一个临时的</span>
+                <span class="c1">// 提案对象和`proposals.push(...)`</span>
+                <span class="c1">// 将它附加到`proposals`的末尾.</span>
+                <span class="nx">proposals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">Proposal</span><span class="p">({</span>
+                    <span class="nx">name</span><span class="o">:</span> <span class="nx">proposalNames</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span>
+                    <span class="nx">voteCount</span><span class="o">:</span> <span class="mi">0</span>
+                <span class="p">}));</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 赋予“选民”投票权.</span>
+        <span class="c1">// 只能由`委员长`调用.</span>
+        <span class="kd">function</span> <span class="nx">giveRightToVote</span><span class="p">(</span><span class="nx">address</span> <span class="nx">voter</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="c1">// 如果`require`的参数评估为`false`，它会终止并恢复对状态的所有更改，并返回到以太平衡.</span>
+            <span class="c1">// 如果函数被错误地调用，通常使用它是一个好主意。</span>
+            <span class="c1">// 但要小心，这也将消耗所有提供的天然气(这是计划在未来改变)。</span>
+            <span class="nx">require</span><span class="p">((</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span> <span class="o">==</span> <span class="nx">chairperson</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">voters</span><span class="p">[</span><span class="nx">voter</span><span class="p">].</span><span class="nx">voted</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">voters</span><span class="p">[</span><span class="nx">voter</span><span class="p">].</span><span class="nx">weight</span> <span class="o">==</span> <span class="mi">0</span><span class="p">));</span>
+            <span class="nx">voters</span><span class="p">[</span><span class="nx">voter</span><span class="p">].</span><span class="nx">weight</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 把你的选票委托给选民`到`。</span>
+        <span class="kd">function</span> <span class="nx">delegate</span><span class="p">(</span><span class="nx">address</span> <span class="nx">to</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="c1">// 指定参考</span>
+            <span class="nx">Voter</span> <span class="nx">storage</span> <span class="nx">sender</span> <span class="o">=</span> <span class="nx">voters</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">];</span>
+            <span class="nx">require</span><span class="p">(</span><span class="o">!</span><span class="nx">sender</span><span class="p">.</span><span class="nx">voted</span><span class="p">);</span>
+
+            <span class="c1">// 自我授权是不被允许的。</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">to</span> <span class="o">!=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">);</span>
+
+            <span class="c1">// 只要`to`也委派给代表团。,一般来说，这样的循环是非常危险的，因为如果它们运行时间过长，它们可能需要比块中可用的更多的气体。</span>
+            <span class="c1">// 在这种情况下，代表团将不会执行，但在其他情况下，此类循环可能会导致合约“完全停滞”。</span>
+            <span class="k">while</span> <span class="p">(</span><span class="nx">voters</span><span class="p">[</span><span class="nx">to</span><span class="p">].</span><span class="nx">delegate</span> <span class="o">!=</span> <span class="nx">address</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nx">to</span> <span class="o">=</span> <span class="nx">voters</span><span class="p">[</span><span class="nx">to</span><span class="p">].</span><span class="nx">delegate</span><span class="p">;</span>
+
+                <span class="c1">// We found a loop in the delegation, not allowed.</span>
+                <span class="nx">require</span><span class="p">(</span><span class="nx">to</span> <span class="o">!=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="c1">// 由于`sender`是一个参考，所以这会修改`选民[msg.sender] .voted`</span>
+            <span class="nx">sender</span><span class="p">.</span><span class="nx">voted</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="nx">sender</span><span class="p">.</span><span class="nx">delegate</span> <span class="o">=</span> <span class="nx">to</span><span class="p">;</span>
+            <span class="nx">Voter</span> <span class="nx">storage</span> <span class="nx">delegate</span> <span class="o">=</span> <span class="nx">voters</span><span class="p">[</span><span class="nx">to</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">delegate</span><span class="p">.</span><span class="nx">voted</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 如果代表已经投票，则直接增加投票数</span>
+                <span class="nx">proposals</span><span class="p">[</span><span class="nx">delegate</span><span class="p">.</span><span class="nx">vote</span><span class="p">].</span><span class="nx">voteCount</span> <span class="o">+=</span> <span class="nx">sender</span><span class="p">.</span><span class="nx">weight</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="c1">// 如果代表还没有投票，请增加她的体重。</span>
+                <span class="nx">delegate</span><span class="p">.</span><span class="nx">weight</span> <span class="o">+=</span> <span class="nx">sender</span><span class="p">.</span><span class="nx">weight</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 将您的投票(包括授予您的投票)提交给提案 `proposals[proposal].name`.</span>
+        <span class="kd">function</span> <span class="nx">vote</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">proposal</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="nx">Voter</span> <span class="nx">storage</span> <span class="nx">sender</span> <span class="o">=</span> <span class="nx">voters</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">];</span>
+            <span class="nx">require</span><span class="p">(</span><span class="o">!</span><span class="nx">sender</span><span class="p">.</span><span class="nx">voted</span><span class="p">);</span>
+            <span class="nx">sender</span><span class="p">.</span><span class="nx">voted</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="nx">sender</span><span class="p">.</span><span class="nx">vote</span> <span class="o">=</span> <span class="nx">proposal</span><span class="p">;</span>
+
+            <span class="c1">// 如果`提议`超出了数组范围，这将自动抛出并恢复所有更改。</span>
+            <span class="nx">proposals</span><span class="p">[</span><span class="nx">proposal</span><span class="p">].</span><span class="nx">voteCount</span> <span class="o">+=</span> <span class="nx">sender</span><span class="p">.</span><span class="nx">weight</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// @dev计算以前所有投票的获胜建议。</span>
+        <span class="kd">function</span> <span class="nx">winningProposal</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">view</span>
+                <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span> <span class="nx">winningProposal</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">uint</span> <span class="nx">winningVoteCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="nx">uint</span> <span class="nx">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">p</span> <span class="o">&lt;</span> <span class="nx">proposals</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">p</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">proposals</span><span class="p">[</span><span class="nx">p</span><span class="p">].</span><span class="nx">voteCount</span> <span class="o">&gt;</span> <span class="nx">winningVoteCount</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">winningVoteCount</span> <span class="o">=</span> <span class="nx">proposals</span><span class="p">[</span><span class="nx">p</span><span class="p">].</span><span class="nx">voteCount</span><span class="p">;</span>
+                    <span class="nx">winningProposal</span> <span class="o">=</span> <span class="nx">p</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 调用winningProposal()函数以获取提议数组中包含的获胜者的索引，然后返回获胜者的名称</span>
+        <span class="kd">function</span> <span class="nx">winnerName</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">view</span>
+                <span class="nx">returns</span> <span class="p">(</span><span class="nx">bytes32</span> <span class="nx">winnerName</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">winnerName</span> <span class="o">=</span> <span class="nx">proposals</span><span class="p">[</span><span class="nx">winningProposal</span><span class="p">()].</span><span class="nx">name</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<h3 id="_3">可能的改进<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>目前，需要许多交易才能将投票权赋予所有参与者。
+你能想出更好的方法吗？</p>
+<h2 id="_4">暗标<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>在本节中，我们将展示在以太坊创建一个完全失明的拍卖合约是多么容易。
+我们将从公开拍卖开始，每个人都可以看到所做的投标，然后将此合约扩展到盲目拍卖，在竞标期结束之前无法看到实际出价。</p>
+<h3 id="_5">简单的公开拍卖<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>以下简单的拍卖合约的总体思路是每个人都可以在投标期内发送他们的出价。
+出价已经包括发送金钱/以太币以使投标人与他们的出价相结合。
+如果提高最高出价，以前出价最高的出价者就可以拿回她的钱了。
+在投标期结束后，合约必须手动为受益人接收他的钱 - 合约不能激活自己。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.11</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">SimpleAuction</span> <span class="p">{</span>
+        <span class="c1">// 拍卖的参数.</span>
+        <span class="c1">// 时间是绝对的unix时间戳(自1970-01-01以来的秒数)或以秒为单位的时间段.</span>
+        <span class="nx">address</span> <span class="kr">public</span> <span class="nx">beneficiary</span><span class="p">;</span>
+        <span class="nx">uint</span> <span class="kr">public</span> <span class="nx">auctionEnd</span><span class="p">;</span>
+
+        <span class="c1">// 拍卖的当前状态.</span>
+        <span class="nx">address</span> <span class="kr">public</span> <span class="nx">highestBidder</span><span class="p">;</span>
+        <span class="nx">uint</span> <span class="kr">public</span> <span class="nx">highestBid</span><span class="p">;</span>
+
+        <span class="c1">// 允许撤回之前的出价</span>
+        <span class="nx">mapping</span><span class="p">(</span><span class="nx">address</span> <span class="p">=&gt;</span> <span class="nx">uint</span><span class="p">)</span> <span class="nx">pendingReturns</span><span class="p">;</span>
+
+        <span class="c1">// 最后设置为true，禁止任何更改</span>
+        <span class="nx">bool</span> <span class="nx">ended</span><span class="p">;</span>
+
+        <span class="c1">// 将在更改中触发的事件.</span>
+        <span class="nx">event</span> <span class="nx">HighestBidIncreased</span><span class="p">(</span><span class="nx">address</span> <span class="nx">bidder</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">amount</span><span class="p">);</span>
+        <span class="nx">event</span> <span class="nx">AuctionEnded</span><span class="p">(</span><span class="nx">address</span> <span class="nx">winner</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">amount</span><span class="p">);</span>
+
+        <span class="c1">// 以下是所谓的natspec评论，可以通过三个斜线来识别。</span>
+        <span class="c1">// 它会在用户被要求确认交易时显示。</span>
+
+        <span class="c1">// 代表受益人地址_beneficiary创建一个包含`_biddingTime`秒投标时间的简单拍卖。</span>
+        <span class="kd">function</span> <span class="nx">SimpleAuction</span><span class="p">(</span>
+            <span class="nx">uint</span> <span class="nx">_biddingTime</span><span class="p">,</span>
+            <span class="nx">address</span> <span class="nx">_beneficiary</span>
+        <span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="nx">beneficiary</span> <span class="o">=</span> <span class="nx">_beneficiary</span><span class="p">;</span>
+            <span class="nx">auctionEnd</span> <span class="o">=</span> <span class="nx">now</span> <span class="o">+</span> <span class="nx">_biddingTime</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 与此次交易一起发送的价格与拍卖竞标。</span>
+        <span class="c1">// 如果拍卖没有赢得，价值只会被退还。</span>
+        <span class="kd">function</span> <span class="nx">bid</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">payable</span> <span class="p">{</span>
+            <span class="c1">// 调用winningProposal()函数以获取提议数组中包含的获胜者的索引，然后返回获胜者的名称</span>
+            <span class="c1">// 为了能够接收以太网，功能需要关键字。</span>
+
+            <span class="c1">// 如果投标期结束，请恢复通话。</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">now</span> <span class="o">&lt;=</span> <span class="nx">auctionEnd</span><span class="p">);</span>
+
+            <span class="c1">// 如果出价不高，请将钱退回。</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">value</span> <span class="o">&gt;</span> <span class="nx">highestBid</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">highestBidder</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 通过仅使用highestBidder.send(highestBid)发回资金是一种安全风险，因为它可以执行不受信任的合约。</span>
+                <span class="c1">// 让收款人自己收回钱总是比较安全的。</span>
+                <span class="nx">pendingReturns</span><span class="p">[</span><span class="nx">highestBidder</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">highestBid</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nx">highestBidder</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">;</span>
+            <span class="nx">highestBid</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+            <span class="nx">HighestBidIncreased</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 撤回高出价的出价。</span>
+        <span class="kd">function</span> <span class="nx">withdraw</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">uint</span> <span class="nx">amount</span> <span class="o">=</span> <span class="nx">pendingReturns</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 将它设置为零是很重要的，因为接收者可以在发送返回之前再次调用此函数作为接收调用的一部分。</span>
+                <span class="nx">pendingReturns</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">amount</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="c1">// 没有必要拨打这里，只需重置欠款</span>
+                    <span class="nx">pendingReturns</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">=</span> <span class="nx">amount</span><span class="p">;</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 结束拍卖并将最高出价发送给受益人。</span>
+        <span class="kd">function</span> <span class="nx">auctionEnd</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="c1">// 将与其他合约交互的功能(即他们称为功能或发送以太网)分为三个阶段是一个很好的指导原则:</span>
+            <span class="c1">// 1.检查条件</span>
+            <span class="c1">// 2.执行行动(潜在的变化条件)</span>
+            <span class="c1">// 3.与其他合约进行交互</span>
+            <span class="c1">// 如果这些阶段混在一起，另一个合约可以回拨到当前合约中，并且修改状态或原因效应(以太付款)将被执行多次</span>
+            <span class="c1">// 如果内部调用的职能包括与外部合约的交互，则他们也必须被视为与外部合约的交互。</span>
+
+            <span class="c1">// 1.条件</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">now</span> <span class="o">&gt;=</span> <span class="nx">auctionEnd</span><span class="p">);</span> <span class="c1">// auction did not yet end</span>
+            <span class="nx">require</span><span class="p">(</span><span class="o">!</span><span class="nx">ended</span><span class="p">);</span> <span class="c1">// this function has already been called</span>
+
+            <span class="c1">// 2.效果</span>
+            <span class="nx">ended</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="nx">AuctionEnded</span><span class="p">(</span><span class="nx">highestBidder</span><span class="p">,</span> <span class="nx">highestBid</span><span class="p">);</span>
+
+            <span class="c1">// 3.相互作用</span>
+            <span class="nx">beneficiary</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="nx">highestBid</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<h3 id="_6">暗标<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>以前的公开拍卖会延伸到以下的盲目拍卖。
+盲目拍卖的优势在于投标期结束时没有时间压力。
+在一个透明的计算平台上创建一个盲目拍卖可能听起来像是一个矛盾，但是密码学可以解救。</p>
+<p>在投标期间，投标人实际上并没有发出她的投标，而只是一个散列版本。
+由于目前认为实际上不可能找到两个(足够长)的哈希值相等的值，因此投标人承诺通过该投标。
+投标结束后，投标人必须公开他们的投标：他们将他们的价值未加密并且合约检查散列值与投标期间提供的散列值相同。</p>
+<p>另一个挑战是如何在同一时间使拍卖具有约束力和盲目性：在赢得拍卖后阻止投标人不发送货币的唯一方法是让她在拍卖中一并发送。
+既然价值转移不能在以太坊蒙蔽，任何人都可以看到价值。</p>
+<p>以下合约通过接受任何大于最高出价的值来解决此问题。
+因为这当然只能在披露阶段进行检查，所以有些出价可能是无效的，这是有意的(它甚至提供了一个明确的标记，用高价值的转让放置无效的出价):
+投标人可以通过设置几个高或低的无效投标来混淆竞争。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.11</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">BlindAuction</span> <span class="p">{</span>
+        <span class="nx">struct</span> <span class="nx">Bid</span> <span class="p">{</span>
+            <span class="nx">bytes32</span> <span class="nx">blindedBid</span><span class="p">;</span>
+            <span class="nx">uint</span> <span class="nx">deposit</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">address</span> <span class="kr">public</span> <span class="nx">beneficiary</span><span class="p">;</span>
+        <span class="nx">uint</span> <span class="kr">public</span> <span class="nx">biddingEnd</span><span class="p">;</span>
+        <span class="nx">uint</span> <span class="kr">public</span> <span class="nx">revealEnd</span><span class="p">;</span>
+        <span class="nx">bool</span> <span class="kr">public</span> <span class="nx">ended</span><span class="p">;</span>
+
+        <span class="nx">mapping</span><span class="p">(</span><span class="nx">address</span> <span class="p">=&gt;</span> <span class="nx">Bid</span><span class="p">[])</span> <span class="kr">public</span> <span class="nx">bids</span><span class="p">;</span>
+
+        <span class="nx">address</span> <span class="kr">public</span> <span class="nx">highestBidder</span><span class="p">;</span>
+        <span class="nx">uint</span> <span class="kr">public</span> <span class="nx">highestBid</span><span class="p">;</span>
+
+        <span class="c1">// 允许撤回之前的出价</span>
+        <span class="nx">mapping</span><span class="p">(</span><span class="nx">address</span> <span class="p">=&gt;</span> <span class="nx">uint</span><span class="p">)</span> <span class="nx">pendingReturns</span><span class="p">;</span>
+
+        <span class="nx">event</span> <span class="nx">AuctionEnded</span><span class="p">(</span><span class="nx">address</span> <span class="nx">winner</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">highestBid</span><span class="p">);</span>
+
+        <span class="c1">// 修饰符是验证函数输入的便捷方式。 ,`onlyBefore`应用于下面的`bid`：</span>
+        <span class="c1">// 新的函数体是修饰符的主体，其中`_`被旧的函数体替换。</span>
+        <span class="nx">modifier</span> <span class="nx">onlyBefore</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">_time</span><span class="p">)</span> <span class="p">{</span> <span class="nx">require</span><span class="p">(</span><span class="nx">now</span> <span class="o">&lt;</span> <span class="nx">_time</span><span class="p">);</span> <span class="nx">_</span><span class="p">;</span> <span class="p">}</span>
+        <span class="nx">modifier</span> <span class="nx">onlyAfter</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">_time</span><span class="p">)</span> <span class="p">{</span> <span class="nx">require</span><span class="p">(</span><span class="nx">now</span> <span class="o">&gt;</span> <span class="nx">_time</span><span class="p">);</span> <span class="nx">_</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">BlindAuction</span><span class="p">(</span>
+            <span class="nx">uint</span> <span class="nx">_biddingTime</span><span class="p">,</span>
+            <span class="nx">uint</span> <span class="nx">_revealTime</span><span class="p">,</span>
+            <span class="nx">address</span> <span class="nx">_beneficiary</span>
+        <span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="nx">beneficiary</span> <span class="o">=</span> <span class="nx">_beneficiary</span><span class="p">;</span>
+            <span class="nx">biddingEnd</span> <span class="o">=</span> <span class="nx">now</span> <span class="o">+</span> <span class="nx">_biddingTime</span><span class="p">;</span>
+            <span class="nx">revealEnd</span> <span class="o">=</span> <span class="nx">biddingEnd</span> <span class="o">+</span> <span class="nx">_revealTime</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 用`_blindedBid` = keccak256(价值，假，秘密).</span>
+        <span class="c1">// 如果投标在披露阶段正确显示，则只会退还已发送的以太币。</span>
+        <span class="c1">// 如果与投标一起发送的以太币至少为“有价值”且“假”不真实，则投标有效。</span>
+        <span class="c1">// 将“假”设置为真，并发送不确切的金额是隐藏实际出价但仍然需要存款的方法。</span>
+        <span class="c1">// 同一个地址可以放置多个出价。</span>
+        <span class="kd">function</span> <span class="nx">bid</span><span class="p">(</span><span class="nx">bytes32</span> <span class="nx">_blindedBid</span><span class="p">)</span>
+            <span class="kr">public</span>
+            <span class="nx">payable</span>
+            <span class="nx">onlyBefore</span><span class="p">(</span><span class="nx">biddingEnd</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">bids</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">Bid</span><span class="p">({</span>
+                <span class="nx">blindedBid</span><span class="o">:</span> <span class="nx">_blindedBid</span><span class="p">,</span>
+                <span class="nx">deposit</span><span class="o">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span>
+            <span class="p">}));</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 揭示你不知情的投标。</span>
+        <span class="c1">// 对于所有正确无视的无效出价以及除最高出价以外的所有出价，您都将获得退款。</span>
+        <span class="kd">function</span> <span class="nx">reveal</span><span class="p">(</span>
+            <span class="nx">uint</span><span class="p">[]</span> <span class="nx">_values</span><span class="p">,</span>
+            <span class="nx">bool</span><span class="p">[]</span> <span class="nx">_fake</span><span class="p">,</span>
+            <span class="nx">bytes32</span><span class="p">[]</span> <span class="nx">_secret</span>
+        <span class="p">)</span>
+            <span class="kr">public</span>
+            <span class="nx">onlyAfter</span><span class="p">(</span><span class="nx">biddingEnd</span><span class="p">)</span>
+            <span class="nx">onlyBefore</span><span class="p">(</span><span class="nx">revealEnd</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">uint</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">bids</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">_values</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="nx">length</span><span class="p">);</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">_fake</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="nx">length</span><span class="p">);</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">_secret</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="nx">length</span><span class="p">);</span>
+
+            <span class="nx">uint</span> <span class="nx">refund</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="nx">uint</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">bid</span> <span class="o">=</span> <span class="nx">bids</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">][</span><span class="nx">i</span><span class="p">];</span>
+                <span class="kd">var</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">fake</span><span class="p">,</span> <span class="nx">secret</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="nx">_values</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">_fake</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">_secret</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">bid</span><span class="p">.</span><span class="nx">blindedBid</span> <span class="o">!=</span> <span class="nx">keccak256</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">fake</span><span class="p">,</span> <span class="nx">secret</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="c1">// 出价实际上并未透露。</span>
+                    <span class="c1">// 不要退还押金。</span>
+                    <span class="k">continue</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="nx">refund</span> <span class="o">+=</span> <span class="nx">bid</span><span class="p">.</span><span class="nx">deposit</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">fake</span> <span class="o">&amp;&amp;</span> <span class="nx">bid</span><span class="p">.</span><span class="nx">deposit</span> <span class="o">&gt;=</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nx">placeBid</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">value</span><span class="p">))</span>
+                        <span class="nx">refund</span> <span class="o">-=</span> <span class="nx">value</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="c1">// Make it impossible for the sender to re-claim</span>
+                <span class="c1">// the same deposit.</span>
+                <span class="nx">bid</span><span class="p">.</span><span class="nx">blindedBid</span> <span class="o">=</span> <span class="nx">bytes32</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="nx">refund</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 这是一个“内部”功能，这意味着它只能从合约本身(或派生合约)中调用。</span>
+        <span class="kd">function</span> <span class="nx">placeBid</span><span class="p">(</span><span class="nx">address</span> <span class="nx">bidder</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">value</span><span class="p">)</span> <span class="nx">internal</span>
+                <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span> <span class="nx">success</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">&lt;=</span> <span class="nx">highestBid</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">highestBidder</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 退还先前出价最高的出价者。</span>
+                <span class="nx">pendingReturns</span><span class="p">[</span><span class="nx">highestBidder</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">highestBid</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nx">highestBid</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+            <span class="nx">highestBidder</span> <span class="o">=</span> <span class="nx">bidder</span><span class="p">;</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 撤回出价过高的出价</span>
+        <span class="kd">function</span> <span class="nx">withdraw</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="nx">uint</span> <span class="nx">amount</span> <span class="o">=</span> <span class="nx">pendingReturns</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 将此设置为零是很重要的，因为接收者可以在`transfer`返回之前再次调用此函数作为接收呼叫的一部分(请参阅上面关于条件 - &gt;效果 - &gt;交互的注释)。</span>
+                <span class="nx">pendingReturns</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+                <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="nx">amount</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 结束拍卖并将最高出价发送给受益人</span>
+        <span class="kd">function</span> <span class="nx">auctionEnd</span><span class="p">()</span>
+            <span class="kr">public</span>
+            <span class="nx">onlyAfter</span><span class="p">(</span><span class="nx">revealEnd</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">require</span><span class="p">(</span><span class="o">!</span><span class="nx">ended</span><span class="p">);</span>
+            <span class="nx">AuctionEnded</span><span class="p">(</span><span class="nx">highestBidder</span><span class="p">,</span> <span class="nx">highestBid</span><span class="p">);</span>
+            <span class="nx">ended</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="nx">beneficiary</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="nx">highestBid</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<h2 id="_7">安全远程购买<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.11</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">Purchase</span> <span class="p">{</span>
+        <span class="nx">uint</span> <span class="kr">public</span> <span class="nx">value</span><span class="p">;</span>
+        <span class="nx">address</span> <span class="kr">public</span> <span class="nx">seller</span><span class="p">;</span>
+        <span class="nx">address</span> <span class="kr">public</span> <span class="nx">buyer</span><span class="p">;</span>
+        <span class="kr">enum</span> <span class="nx">State</span> <span class="p">{</span> <span class="nx">Created</span><span class="p">,</span> <span class="nx">Locked</span><span class="p">,</span> <span class="nx">Inactive</span> <span class="p">}</span>
+        <span class="nx">State</span> <span class="kr">public</span> <span class="nx">state</span><span class="p">;</span>
+
+        <span class="c1">// 确保`msg.value`是一个偶数。</span>
+        <span class="c1">// 如果它是一个奇数，则该分区将被截断。</span>
+        <span class="c1">// 通过乘法检查它不是奇数。</span>
+        <span class="kd">function</span> <span class="nx">Purchase</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">payable</span> <span class="p">{</span>
+            <span class="nx">seller</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">;</span>
+            <span class="nx">value</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="nx">require</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">value</span><span class="p">)</span> <span class="o">==</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nx">modifier</span> <span class="nx">condition</span><span class="p">(</span><span class="nx">bool</span> <span class="nx">_condition</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">_condition</span><span class="p">);</span>
+            <span class="nx">_</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">modifier</span> <span class="nx">onlyBuyer</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span> <span class="o">==</span> <span class="nx">buyer</span><span class="p">);</span>
+            <span class="nx">_</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">modifier</span> <span class="nx">onlySeller</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span> <span class="o">==</span> <span class="nx">seller</span><span class="p">);</span>
+            <span class="nx">_</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">modifier</span> <span class="nx">inState</span><span class="p">(</span><span class="nx">State</span> <span class="nx">_state</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">require</span><span class="p">(</span><span class="nx">state</span> <span class="o">==</span> <span class="nx">_state</span><span class="p">);</span>
+            <span class="nx">_</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">event</span> <span class="nx">Aborted</span><span class="p">();</span>
+        <span class="nx">event</span> <span class="nx">PurchaseConfirmed</span><span class="p">();</span>
+        <span class="nx">event</span> <span class="nx">ItemReceived</span><span class="p">();</span>
+
+        <span class="c1">// 放弃购买并收回乙醚。</span>
+        <span class="c1">// 只能在合约被锁定之前由卖方调用。</span>
+        <span class="kd">function</span> <span class="nx">abort</span><span class="p">()</span>
+            <span class="kr">public</span>
+            <span class="nx">onlySeller</span>
+            <span class="nx">inState</span><span class="p">(</span><span class="nx">State</span><span class="p">.</span><span class="nx">Created</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">Aborted</span><span class="p">();</span>
+            <span class="nx">state</span> <span class="o">=</span> <span class="nx">State</span><span class="p">.</span><span class="nx">Inactive</span><span class="p">;</span>
+            <span class="nx">seller</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">balance</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 确认购买为买方。</span>
+        <span class="c1">// 交易必须包括`2 *值`以太。</span>
+        <span class="c1">// ether将被锁定，直到confirmReceived被调用。</span>
+        <span class="kd">function</span> <span class="nx">confirmPurchase</span><span class="p">()</span>
+            <span class="kr">public</span>
+            <span class="nx">inState</span><span class="p">(</span><span class="nx">State</span><span class="p">.</span><span class="nx">Created</span><span class="p">)</span>
+            <span class="nx">condition</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">value</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">value</span><span class="p">))</span>
+            <span class="nx">payable</span>
+        <span class="p">{</span>
+            <span class="nx">PurchaseConfirmed</span><span class="p">();</span>
+            <span class="nx">buyer</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">;</span>
+            <span class="nx">state</span> <span class="o">=</span> <span class="nx">State</span><span class="p">.</span><span class="nx">Locked</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 确认您(买家)收到该物品。</span>
+        <span class="c1">// 这将释放锁定的以太。</span>
+        <span class="kd">function</span> <span class="nx">confirmReceived</span><span class="p">()</span>
+            <span class="kr">public</span>
+            <span class="nx">onlyBuyer</span>
+            <span class="nx">inState</span><span class="p">(</span><span class="nx">State</span><span class="p">.</span><span class="nx">Locked</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">ItemReceived</span><span class="p">();</span>
+            <span class="c1">// 首先改变状态很重要，否则，使用下面的`send`调用的合约可以在这里再次调用。</span>
+            <span class="nx">state</span> <span class="o">=</span> <span class="nx">State</span><span class="p">.</span><span class="nx">Inactive</span><span class="p">;</span>
+
+            <span class="c1">// 注意：这实际上允许买家和卖家阻止退款 - 应该使用退款模式。</span>
+
+            <span class="nx">buyer</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+            <span class="nx">seller</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">balance</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<h2 id="_8">微支付渠道<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>待编辑.</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../installing-solidity/" title="安装编译器" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                安装编译器
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../solidity-in-depth/" title="概述" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                概述
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.6cdc17f0.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              <script src="../assets/javascripts/lunr/lunr.zh.js"></script>
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

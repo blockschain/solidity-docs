@@ -1,0 +1,1258 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Solidity中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.5">
+    
+    
+      
+        <title>智能合约 - Solidity文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.bcabdff3.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Solidity文档" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Solidity文档
+              </span>
+              <span class="md-header-nav__topic">
+                智能合约
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/solidity-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/solidity-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="简介" class="md-tabs__link md-tabs__link--active">
+        简介
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../solidity-in-depth/" title="深入" class="md-tabs__link">
+          深入
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Solidity文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/solidity-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/solidity-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        智能合约
+      </label>
+    
+    <a href="./" title="智能合约" class="md-nav__link md-nav__link--active">
+      智能合约
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="一个简单的智能合约" class="md-nav__link">
+    一个简单的智能合约
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="存储" class="md-nav__link">
+    存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="子例子" class="md-nav__link">
+    子例子
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="区块链基础知识" class="md-nav__link">
+    区块链基础知识
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="交易" class="md-nav__link">
+    交易
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="块" class="md-nav__link">
+    块
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="以太坊虚拟机器" class="md-nav__link">
+    以太坊虚拟机器
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="概观" class="md-nav__link">
+    概观
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="帐号" class="md-nav__link">
+    帐号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="交易" class="md-nav__link">
+    交易
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="燃料" class="md-nav__link">
+    燃料
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="存储，内存和堆栈" class="md-nav__link">
+    存储，内存和堆栈
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="指令系统" class="md-nav__link">
+    指令系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="消息呼叫" class="md-nav__link">
+    消息呼叫
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegatecall-callcode" title="Delegatecall / Callcode和库" class="md-nav__link">
+    Delegatecall / Callcode和库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="日志" class="md-nav__link">
+    日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" title="创建" class="md-nav__link">
+    创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="自启动" class="md-nav__link">
+    自启动
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../installing-solidity/" title="安装编译器" class="md-nav__link">
+      安装编译器
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../solidity-by-example/" title="示例" class="md-nav__link">
+      示例
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      深入
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        深入
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../solidity-in-depth/" title="概述" class="md-nav__link">
+      概述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../layout-of-source-files/" title="源文件布局" class="md-nav__link">
+      源文件布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../structure-of-a-contract/" title="合约结构" class="md-nav__link">
+      合约结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../types/" title="类型" class="md-nav__link">
+      类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../units-and-global-variables/" title="单位和全局可用变量" class="md-nav__link">
+      单位和全局可用变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../control-structures/" title="表达式和控制结构" class="md-nav__link">
+      表达式和控制结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../contracts/" title="合约" class="md-nav__link">
+      合约
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../assembly/" title="汇编" class="md-nav__link">
+      汇编
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../miscellaneous/" title="杂项" class="md-nav__link">
+      杂项
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security-considerations/" title="安全考虑" class="md-nav__link">
+      安全考虑
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../using-the-compiler/" title="使用编译器" class="md-nav__link">
+      使用编译器
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contracts/" title="合约元数据" class="md-nav__link">
+      合约元数据
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../abi-spec/" title="接口规范" class="md-nav__link">
+      接口规范
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../julia/" title="JULIA" class="md-nav__link">
+      JULIA
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../style-guide/" title="样式指南" class="md-nav__link">
+      样式指南
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../common-patterns/" title="常见模式" class="md-nav__link">
+      常见模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../bugs/" title="错误列表" class="md-nav__link">
+      错误列表
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="贡献" class="md-nav__link">
+      贡献
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../frequently-asked-questions/" title="常见问题" class="md-nav__link">
+      常见问题
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="一个简单的智能合约" class="md-nav__link">
+    一个简单的智能合约
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="存储" class="md-nav__link">
+    存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="子例子" class="md-nav__link">
+    子例子
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="区块链基础知识" class="md-nav__link">
+    区块链基础知识
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="交易" class="md-nav__link">
+    交易
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="块" class="md-nav__link">
+    块
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="以太坊虚拟机器" class="md-nav__link">
+    以太坊虚拟机器
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="概观" class="md-nav__link">
+    概观
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="帐号" class="md-nav__link">
+    帐号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="交易" class="md-nav__link">
+    交易
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="燃料" class="md-nav__link">
+    燃料
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="存储，内存和堆栈" class="md-nav__link">
+    存储，内存和堆栈
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="指令系统" class="md-nav__link">
+    指令系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="消息呼叫" class="md-nav__link">
+    消息呼叫
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegatecall-callcode" title="Delegatecall / Callcode和库" class="md-nav__link">
+    Delegatecall / Callcode和库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="日志" class="md-nav__link">
+    日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" title="创建" class="md-nav__link">
+    创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="自启动" class="md-nav__link">
+    自启动
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">智能合约简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">一个简单的智能合约<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>让我们从最基本的例子开始。 如果你现在不了解所有的事情，这很好，我们将在稍后详细介绍。</p>
+<h3 id="_3">存储<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>    pragma solidity ^0.4.0;
+
+    contract SimpleStorage {
+        uint storedData;
+
+        function set(uint x) public {
+            storedData = x;
+        }
+
+        function get() public constant returns (uint) {
+            return storedData;
+        }
+    }
+</pre></div>
+
+<p>第一行简单地说明源代码是为Solidity版本0.4.0编写的，或者是任何不会破坏功能的新代码 (直到但不包括0.5.0版).
+这是为了确保合约不会突然与新的编译器版本有所不同。 关键字<code>pragma</code>就是这样调用的，因为一般来说，编译指示是编译器关于如何处理源代码的指令 (例如 <a href="https://en.wikipedia.org/wiki/Pragma_once">pragma once</a>).</p>
+<p>Solidity意义上的契约是驻留在以太坊区块链上特定地址的代码（它的<em>solidity</em>）和数据（它的<em>state</em>）的集合。 'uint storedData'这一行声明了一个名为<code>storedData</code>的类型为<code>uint</code>的状态变量（256位的无符号整数）.
+您可以将其视为数据库中的单个插槽，通过调用管理数据库的代码的函数可以查询和修改它。 在以太坊的情况下，这通常是拥有合约。 在这种情况下，函数<code>set</code>和<code>get</code>可以用来修改或检索变量的值。</p>
+<p>为了访问一个状态变量，你不需要在其他语言中常见的前缀<code>this.</code>。</p>
+<p>除了允许任何人存储单一号码，世界上任何人都无法访问（可行）的方式来阻止您发布此号码，该合约还没有做太多的工作（由于Ethereum构建的基础设施）。
+当然，任何人都可以用不同的值再次调用<code>set</code>并覆盖您的号码，但号码仍将存储在区块链的历史记录中。
+稍后，我们将看到如何强制实施访问限制，以便只有您可以更改号码。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>所有标识符（合约名称，函数名称和变量名称）都限制为ASCII字符集。 可以将UTF-8编码的数据存储在字符串变量中。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>使用Unicode文本时要小心，因为类似看起来（甚至相同）的字符可以具有不同的代码点，并且因此将被编码为不同的字节数组。</p>
+</div>
+<h3 id="_4">子例子<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>以下合约将实施加密货币的最简单形式。
+可以凭空产生硬币，但只有创建合约的人才能做到这一点（实施不同的发行计划是微不足道的）。
+此外，任何人都可以互相发送硬币，而无需使用用户名和密码进行注册 - 您只需要一个以太坊密钥对。</p>
+<div class="codehilite"><pre><span></span>    pragma solidity ^0.4.0;
+
+    contract Coin {
+        // The keyword &quot;public&quot; makes those variables
+        // readable from outside.
+        address public minter;
+        mapping (address =&gt; uint) public balances;
+
+        // Events allow light clients to react on
+        // changes efficiently.
+        event Sent(address from, address to, uint amount);
+
+        // This is the constructor whose code is
+        // run only when the contract is created.
+        function Coin() public {
+            minter = msg.sender;
+        }
+
+        function mint(address receiver, uint amount) public {
+            if (msg.sender != minter) return;
+            balances[receiver] += amount;
+        }
+
+        function send(address receiver, uint amount) public {
+            if (balances[msg.sender] &lt; amount) return;
+            balances[msg.sender] -= amount;
+            balances[receiver] += amount;
+            Sent(msg.sender, receiver, amount);
+        }
+    }
+</pre></div>
+
+<p>这份合约引入了一些新的概念，让我们一一浏览。</p>
+<p>'address public minter'行声明了一个可公开访问的类型为地址的状态变量。 “地址”类型是一个不允许任何算术运算的160位值。 它适用于存储属于外部人员的合约或钥匙对的地址。 关键字<code>public</code>自动生成一个函数，允许您访问状态变量的当前值。 没有这个关键字，其他合约就无法访问变量。 该功能看起来像这样:</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">minter</span><span class="p">()</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">address</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">minter</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>当然，像这样添加一个函数是行不通的，因为我们会有一个名字相同的函数和一个状态变量，但是希望您能够明白 - 编译器会为您解决这个问题。</p>
+<p>下一行<code>mapping (address =&gt; uint) public balances;</code>也创建一个公共状态变量，但它是一个更复杂的数据类型。 该类型将地址映射为无符号整数。 映射可以看作<a href="https://en.wikipedia.org/wiki/Hash_table">散列表</a>，它被虚拟初始化，这样每个可能的键都存在并映射到一个字节表示全为零的值。
+但是，这种类比并不太过分，因为它既不可能获得映射的所有键的列表，也不可能获得所有值的列表。
+因此，要么记住（或更好地保留列表或使用更高级的数据类型）添加到映射中的内容，要么在不需要这样的上下文中使用它，就像这样。
+在这种情况下，由<code>public</code>关键字创建的[getter函数]](getter-functions.md)有点复杂。
+它大致如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">balances</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_account</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">balances</span><span class="p">[</span><span class="nx">_account</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>如您所见，您可以使用此功能轻松查询单个帐户的余额。</p>
+<p>The line <code>event Sent(address from, address to, uint amount);</code> declares a so-called "event" which is fired in the last line of the function <code>send</code>.
+用户界面（当然也包括服务器应用程序）可以在没有太多成本的情况下侦听在区块链上被触发的事件。
+只要它被触发，监听器也会收到<code>from</code>，<code>to</code>和<code>amount</code>参数，这使得跟踪交易变得很容易。
+为了听这个事件，你可以使用：</p>
+<div class="codehilite"><pre><span></span><span class="nt">Coin</span><span class="p">.</span><span class="nc">Sent</span><span class="o">()</span><span class="p">.</span><span class="nc">watch</span><span class="o">(</span><span class="p">{}</span><span class="o">,</span> <span class="s1">&#39;&#39;</span><span class="o">,</span> <span class="nt">function</span><span class="o">(</span><span class="nt">error</span><span class="o">,</span> <span class="nt">result</span><span class="o">)</span> <span class="p">{</span>
+    <span class="err">if</span> <span class="err">(!error)</span> <span class="err">{</span>
+        <span class="err">console.log(&quot;Coin</span> <span class="n">transfer</span><span class="p">:</span> <span class="s2">&quot; + result.args.amount +</span>
+<span class="s2">            &quot;</span> <span class="n">coins</span> <span class="n">were</span> <span class="n">sent</span> <span class="n">from</span> <span class="s2">&quot; + result.args.from +</span>
+<span class="s2">            &quot;</span> <span class="kc">to</span> <span class="s2">&quot; + result.args.to + &quot;</span><span class="o">.</span><span class="s2">&quot;);</span>
+<span class="s2">        console.log(&quot;</span><span class="n">Balances</span> <span class="n">now</span><span class="o">:</span><span class="err">\</span><span class="n">n</span><span class="s2">&quot; +</span>
+<span class="s2">            &quot;</span><span class="n">Sender</span><span class="o">:</span> <span class="s2">&quot; + Coin.balances.call(result.args.from) +</span>
+<span class="s2">            &quot;</span><span class="n">Receiver</span><span class="o">:</span> <span class="err">&quot;</span> <span class="o">+</span> <span class="n">Coin</span><span class="o">.</span><span class="n">balances</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">result</span><span class="err">.</span><span class="n">args</span><span class="err">.</span><span class="kc">to</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="err">}</span><span class="o">)</span>
+</pre></div>
+
+
+<p>注意如何从用户界面调用自动生成的函数<code>balances</code>。</p>
+<p>特殊功能<code>Coin</code>是在创建合约时运行的构造函数，不能在事后调用。
+它永久存储创建契约的人的地址：<code>msg</code>（与<code>tx</code>和<code>block</code>一起）是一个神奇的全局变量，它包含一些允许访问区块链的属性。
+<code>msg.sender</code>始终是当前（外部）函数调用的来源地址。</p>
+<p>最后，实际结束于合约并且可以由用户和合约调用的功能是<code>mint</code>和<code>send</code>。
+如果除创建合约的帐户以外的任何人调用“mint”，则不会发生任何事情。
+另一方面，任何人（已经有一些这些硬币）都可以使用<code>send</code>发送硬币给其他人。
+请注意，如果您使用此合约将硬币发送到某个地址，则当您在区块链浏览器中查看该地址时，您将看不到任何内容，因为您发送硬币和已更改的余额仅存储在此数据存储中,特定的硬币合约。
+通过使用事件，创建追踪新硬币交易和余额的“区块链探索器”相对容易。</p>
+<h2 id="_5">区块链基础知识<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>区块链作为一个概念对于程序员来说并不是很难理解。
+原因是大部分的复杂性（挖掘，<a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">哈希</a>，<a href="https://en.wikipedia.org/wiki/Elliptic_curve_cryptography">椭圆曲线密码学</a>，<a href="https://en.wikipedia.org/wiki/Peer-to-peer">对等网络</a>等等）只是为了提供一定的,一套功能和承诺。
+一旦您接受了这些功能，您就不必担心底层技术 - 或者您是否必须知道Amazon的AWS如何在内部使用才能使用它？</p>
+<h3 id="_6">交易<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>区块链是全球共享的事务数据库。
+这意味着每个人都可以通过参与网络阅读数据库中的条目。
+如果你想改变数据库中的某些东西，你必须创建一个所谓的事务，这个事务必须被所有其他人接受。
+单词事务意味着你想要做的改变（假设你想同时改变两个值）要么根本没有完成，要么完全应用。
+而且，当你的交易被应用到数据库时，其他交易都不能改变它。</p>
+<p>举个例子，设想一个表格，列出电子货币中所有账户的余额。
+如果请求从一个账户转账到另一个账户，数据库的交易性质确保了如果从一个账户扣除金额，它总是被添加到另一个账户。
+如果由于任何原因，将金额添加到目标帐户是不可能的，则源帐户也不会被修改。</p>
+<p>此外，交易总是由发件人（创建者）加密签署。
+这使得保护对数据库特定修改的访问变得非常简单。
+在电子货币的例子中，一个简单的支票确保只有持有账户钥匙的人可以从中转账。</p>
+<h3 id="_7">块<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>用比特币术语来说，要克服的一个主要障碍就是所谓的“双重支出攻击”：如果网络中存在两个都希望清空账户的交易（即所谓的冲突），会发生什么？</p>
+<p>这个抽象的答案是，你不必在意。
+交易顺序将为您选择，交易将被捆绑到所谓的“块”中，然后它们将在所有参与节点中执行和分配。
+如果两笔交易相互抵触，那么最终成为第二笔交易的交易将被拒绝并且不成为该块的一部分。</p>
+<p>这些块在时间上形成线性序列，这就是“区块链”这个词来自何处。
+块以相当规则的间隔添加到链中 - 对于以太坊来说，这大约每17秒钟一次。</p>
+<p>作为“订单选择机制”（称为“采矿”）的一部分，可能会发生块不时被还原的情况，但仅限于链的“尖端”。
+顶部添加的块越多，其可能性越小。
+因此，您的交易可能会被还原，甚至从区块链中移除，但您等待的时间越长，可能性越小。</p>
+<h2 id="_8">以太坊虚拟机器<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">概观<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>以太坊虚拟机或EVM是以太坊智能合约的运行环境。
+它不仅仅是沙盒，而且是完全隔离的，这意味着EVM内部运行的代码无法访问网络，文件系统或其他进程。
+智能合约甚至对其他智能合约的访问权限有限。</p>
+<h3 id="_10">帐号<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>在以太坊有两种帐户共享相同的地址空间：<strong>由公私密钥对（即人类）和</strong>合约帐户<strong>控制的外部帐户</strong>，这些帐户由代码控制,该帐户。</p>
+<p>外部账户的地址由公钥确定，而合约地址在合约创建时确定（它来自创建者地址和从该地址发送的交易数量，即所谓的“,随机数“）。</p>
+<p>无论帐户是否存储代码，这两种类型均由EVM平等对待。</p>
+<p>每个帐户都有一个持久性键值存储，将256位字映射为256位字，称为<strong> storage </strong>。</p>
+<p>此外，每个账户在Ether中都有一个<strong>余额</strong>（精确到“Wei”），可以通过发送包含以太网的交易进行修改。</p>
+<h3 id="_11">交易<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>交易是从一个帐户发送到另一个帐户（可能是相同的或特殊的零帐户，见下文）的消息。
+它可以包含二进制数据（它的有效载荷）和以太网。</p>
+<p>如果目标账户包含代码，则执行该代码并将有效负载作为输入数据提供。</p>
+<p>如果目标账户是零账户（地址为“0”的账户），则该交易将创建<strong>新合约</strong>。
+如前所述，该合约的地址不是零地址，而是源自发件人的地址及其发送的交易数（“随机数”）。
+这种合约创建事务的有效载荷被视为EVM字节码并执行。
+此执行的输出永久存储为合约的代码。
+这意味着为了创建合约，您不会发送合约的实际代码，而是实际返回代码的代码。</p>
+<h3 id="_12">燃料<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>在创建之后，每笔交易都会收取一定数量的<strong>天然气</strong>，其目的是限制执行交易所需的工作量，并为此付款。
+当EVM执行交易时，天然气会根据具体规则逐渐耗尽。</p>
+<p><strong>天然气价格</strong>是由交易的创建者设定的值，其必须从发送账户向前支付<code>gas_price * gas</code>。
+如果执行后留下一些气体，它将以同样的方式退还。</p>
+<p>如果天然气在任何时候用完（即它是负值），就会触发一个废气异常，这将恢复当前调用框架中对状态所做的所有修改。</p>
+<h3 id="_13">存储，内存和堆栈<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>每个帐户都有一个称为<strong>存储</strong>的永久存储区。
+存储是将256位字映射到256位字的键值存储。
+从合约中列举存储是不可能的，并且读取更加昂贵，甚至更改存储。
+除了自己的合约外，合约不能读取或写入任何存储。</p>
+<p>第二个内存区域称为<strong>内存</strong>，其中一个合约为每个消息调用获得一个新鲜清除的实例。
+存储器是线性的，可以在字节级寻址，但读取限制为256位宽度，写入可以是8位或256位宽。
+当访问（读取或写入）先前未触及的内存字（即字中的任何偏移量）时，内存由一个字（256位）扩展。
+在扩张时，必须支付天然气的成本。
+内存越大，其成本越高（它按比例调整）。</p>
+<p>EVM不是注册机器，而是堆栈机器，因此所有计算都在称为<strong>堆栈</strong>的区域执行。
+它具有1024个元素的最大尺寸并且包含256位的字。
+通过以下方式将访问权限限制在顶端：可以将最顶层的16个元素中的一个复制到堆栈顶部，或者将最顶层的元素与其下面的16个元素中的一个交换。
+所有其他操作从堆栈中取最上面的两个（或一个或多个，取决于操作）元素，并将结果推送到堆栈上。
+当然，可以将堆栈元素移动到存储器或内存中，但不可能只是访问堆栈中较深的任意元素，而无需先删除堆栈的顶部。</p>
+<h3 id="_14">指令系统<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>EVM的指令集保持最小，以避免可能导致共识问题的错误实现。
+所有指令都以基本数据类型（256位字）进行操作。
+通常的算术，比特，逻辑和比较操作都存在。
+有条件的和无条件的跳转是可能的。
+此外，合约可以访问当前块的相关属性，如其编号和时间戳。</p>
+<h3 id="_15">消息呼叫<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>通过消息调用，合约可以调用其他合约或将以太网发送给非合约账户。
+消息调用与事务类似，因为它们具有源，目标，数据有效载荷，以太网，天然气和返回数据。
+事实上，每个交易都包含一个顶级的消息调用，这反过来又可以创建更多的消息调用。</p>
+<p>合约可以决定剩余的**气体应该在内部的信息通知中发送多少，以及要保留多少。
+如果在内部调用（或任何其他异常）中发生了气体异常异常，则会通过放入堆栈中的错误值来标记此信息。
+在这种情况下，只有与呼叫一起发送的气体用完。
+在Solidity中，在这种情况下，默认情况下调用契约会导致手动异常，所以异常会“唤起”调用堆栈。</p>
+<p>正如已经说过的那样，被叫合约（可以与主叫方相同）将收到一个新鲜清除的内存实例，并可以访问呼叫有效载荷 - 将在名为<strong> calldata </strong>的单独区域中提供。
+完成执行后，它可以返回将存储在调用方预先分配的调用方内存中的位置的数据。</p>
+<p>调用<strong>受限</strong>深度为1024，这意味着对于更复杂的操作，循环应优先于递归调用。</p>
+<h3 id="delegatecall-callcode">Delegatecall / Callcode和库<a class="headerlink" href="#delegatecall-callcode" title="Permanent link">&para;</a></h3>
+<p>消息调用存在一个特殊的变体，命名为<strong> delegatecall </strong>，它与消息调用相同，除了目标地址上的代码在调用协议和msg.sender的上下文中执行以及,<code>msg.value</code>不会改变它们的值。</p>
+<p>这意味着合约可以在运行时动态加载来自不同地址的代码。
+存储，当前地址和余额仍然是指呼叫合约，只有代码来自被叫地址。</p>
+<p>这使得可以在Solidity中实现“库”功能：可用于合约存储的可重复使用的库代码，例如，,以实现一个复杂的数据结构。</p>
+<h3 id="_16">日志<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>可以将数据存储在专门索引的数据结构中，该数据结构一直映射到块级别。
+这个被称为<strong>日志</strong>的特性被Solidity用来实现<strong> events </strong>。
+合约创建后无法访问日志数据，但可以从区块链之外高效访问它们。
+由于日志数据的某些部分存储在<a href="https://en.wikipedia.org/wiki/Bloom_filter">布隆过滤器</a>中，因此可以以高效和密码安全的方式搜索此数据，因此不会下载整个区块链（“轻客户端”）的网络对等方,仍然可以找到这些日志。</p>
+<h3 id="_17">创建<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>契约甚至可以使用特殊的操作码创建其他契约（即它们不会简单地调用零地址）。
+这些<strong>创建调用</strong>和正常消息调用之间唯一的区别在于有效负载数据被执行，并且结果作为代码存储并且调用者/创建者在堆栈上接收新协议的地址。</p>
+<h3 id="_18">自启动<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>从区块链中删除代码的唯一可能性是当该地址的合约执行“selfdestruct”操作时。
+存储在该地址的剩余Ether被发送到指定的目标，然后将存储和代码从状态中移除。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>即使合约的代码不包含对“selfdestruct”的调用，它仍然可以使用<code>delegatecall</code>或<code>callcode</code>执行该操作。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>旧合约的修剪可能会或可能不会由以太坊客户实施。 另外，归档节点可以选择无限期地保持合约存储和代码。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>目前<strong>外部帐户</strong>不能从状态中删除。</p>
+</div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href=".." title="简介" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                简介
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../installing-solidity/" title="安装编译器" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                安装编译器
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.6cdc17f0.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              <script src="../assets/javascripts/lunr/lunr.zh.js"></script>
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

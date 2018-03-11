@@ -1,0 +1,1948 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Solidity中文文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.5">
+    
+    
+      
+        <title>类型 - Solidity文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.bcabdff3.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Solidity文档" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Solidity文档
+              </span>
+              <span class="md-header-nav__topic">
+                类型
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/solidity-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/solidity-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="简介" class="md-tabs__link">
+        简介
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../solidity-in-depth/" title="深入" class="md-tabs__link md-tabs__link--active">
+          深入
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Solidity文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/solidity-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wohugb/solidity-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../introduction-to-smart-contracts/" title="智能合约" class="md-nav__link">
+      智能合约
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../installing-solidity/" title="安装编译器" class="md-nav__link">
+      安装编译器
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../solidity-by-example/" title="示例" class="md-nav__link">
+      示例
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      深入
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        深入
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../solidity-in-depth/" title="概述" class="md-nav__link">
+      概述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../layout-of-source-files/" title="源文件布局" class="md-nav__link">
+      源文件布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../structure-of-a-contract/" title="合约结构" class="md-nav__link">
+      合约结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        类型
+      </label>
+    
+    <a href="./" title="类型" class="md-nav__link md-nav__link--active">
+      类型
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="值类型" class="md-nav__link">
+    值类型
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="布尔" class="md-nav__link">
+    布尔
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="整型" class="md-nav__link">
+    整型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="定点号" class="md-nav__link">
+    定点号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="地址" class="md-nav__link">
+    地址
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="地址成员" class="md-nav__link">
+    地址成员
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="固定大小的字节数组" class="md-nav__link">
+    固定大小的字节数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="动态大小的字节数组" class="md-nav__link">
+    动态大小的字节数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#address" title="地址文字address" class="md-nav__link">
+    地址文字address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="理性和整数文字" class="md-nav__link">
+    理性和整数文字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="字符串文字" class="md-nav__link">
+    字符串文字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="十六进制文字" class="md-nav__link">
+    十六进制文字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="枚举" class="md-nav__link">
+    枚举
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="函数类型" class="md-nav__link">
+    函数类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="参考类型" class="md-nav__link">
+    参考类型
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="数据位置" class="md-nav__link">
+    数据位置
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" title="概要" class="md-nav__link">
+    概要
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="数组" class="md-nav__link">
+    数组
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" title="分配内存数组" class="md-nav__link">
+    分配内存数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" title="数组文字/行内数组" class="md-nav__link">
+    数组文字/行内数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" title="成员" class="md-nav__link">
+    成员
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" title="结构" class="md-nav__link">
+    结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvalues" title="涉及LValues的操作符" class="md-nav__link">
+    涉及LValues的操作符
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" title="删除" class="md-nav__link">
+    删除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" title="基本类型之间的转换" class="md-nav__link">
+    基本类型之间的转换
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" title="隐式转换" class="md-nav__link">
+    隐式转换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" title="显式转换" class="md-nav__link">
+    显式转换
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" title="类型扣除" class="md-nav__link">
+    类型扣除
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../units-and-global-variables/" title="单位和全局可用变量" class="md-nav__link">
+      单位和全局可用变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../control-structures/" title="表达式和控制结构" class="md-nav__link">
+      表达式和控制结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../contracts/" title="合约" class="md-nav__link">
+      合约
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../assembly/" title="汇编" class="md-nav__link">
+      汇编
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../miscellaneous/" title="杂项" class="md-nav__link">
+      杂项
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../security-considerations/" title="安全考虑" class="md-nav__link">
+      安全考虑
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../using-the-compiler/" title="使用编译器" class="md-nav__link">
+      使用编译器
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contracts/" title="合约元数据" class="md-nav__link">
+      合约元数据
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../abi-spec/" title="接口规范" class="md-nav__link">
+      接口规范
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../julia/" title="JULIA" class="md-nav__link">
+      JULIA
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../style-guide/" title="样式指南" class="md-nav__link">
+      样式指南
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../common-patterns/" title="常见模式" class="md-nav__link">
+      常见模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../bugs/" title="错误列表" class="md-nav__link">
+      错误列表
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="贡献" class="md-nav__link">
+      贡献
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../frequently-asked-questions/" title="常见问题" class="md-nav__link">
+      常见问题
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="值类型" class="md-nav__link">
+    值类型
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="布尔" class="md-nav__link">
+    布尔
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="整型" class="md-nav__link">
+    整型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="定点号" class="md-nav__link">
+    定点号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="地址" class="md-nav__link">
+    地址
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="地址成员" class="md-nav__link">
+    地址成员
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="固定大小的字节数组" class="md-nav__link">
+    固定大小的字节数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="动态大小的字节数组" class="md-nav__link">
+    动态大小的字节数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#address" title="地址文字address" class="md-nav__link">
+    地址文字address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="理性和整数文字" class="md-nav__link">
+    理性和整数文字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="字符串文字" class="md-nav__link">
+    字符串文字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="十六进制文字" class="md-nav__link">
+    十六进制文字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="枚举" class="md-nav__link">
+    枚举
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="函数类型" class="md-nav__link">
+    函数类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="参考类型" class="md-nav__link">
+    参考类型
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" title="数据位置" class="md-nav__link">
+    数据位置
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" title="概要" class="md-nav__link">
+    概要
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" title="数组" class="md-nav__link">
+    数组
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" title="分配内存数组" class="md-nav__link">
+    分配内存数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" title="数组文字/行内数组" class="md-nav__link">
+    数组文字/行内数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" title="成员" class="md-nav__link">
+    成员
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" title="结构" class="md-nav__link">
+    结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvalues" title="涉及LValues的操作符" class="md-nav__link">
+    涉及LValues的操作符
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" title="删除" class="md-nav__link">
+    删除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" title="基本类型之间的转换" class="md-nav__link">
+    基本类型之间的转换
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" title="隐式转换" class="md-nav__link">
+    隐式转换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" title="显式转换" class="md-nav__link">
+    显式转换
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" title="类型扣除" class="md-nav__link">
+    类型扣除
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Solidity是一种静态类型语言，这意味着每个变量(状态和本地)的类型需要在编译时指定(或者至少已知 - 参见下面的<a href="">type-deduction</a>)。
+Solidity提供了几种可以组合形成复杂类型的基本类型。</p>
+<p>另外，类型可以在包含运算符的表达式中相互交互。
+有关各种运算符的快速参考，请参见<a href="">order</a>。</p>
+<h2 id="_2">值类型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>以下类型也称为值类型，因为这些类型的变量总是按值传递，即当它们用作函数参数或赋值时，它们总是被复制。</p>
+<h3 id="_3">布尔<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><code>bool</code>: 可用值是常量<code>true</code>和<code>false</code>。</p>
+<p>运算符:</p>
+<ul>
+<li><code>!</code> (逻辑否)</li>
+<li><code>&amp;&amp;</code>(逻辑和)</li>
+<li><code>||</code>(逻辑或)</li>
+<li><code>==</code>(等)</li>
+<li><code>!=</code>(不等)</li>
+</ul>
+<p>运算符<code>||</code>和<code>&amp;&amp;</code>遵从常见的短路规则。这意味着在表达式<code>f(x) || g(y)</code>，如果<code>f(x)</code>为<code>true</code>，<code>g(y)</code>即使可能有副作用也不会被计算。</p>
+<h3 id="_4">整型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><code>int</code> / <code>uint</code>：各种大小的有符号和无符号整数。
+关键词<code>uint8</code>到<code>uint256</code>以<code>8</code>(无符号8到256位)和<code>int8</code>到<code>int256</code>为步长。
+<code>uint</code>和<code>int</code>分别是<code>uint256</code>和<code>int256</code>的别名。</p>
+<p>运算符:</p>
+<ul>
+<li>比较：<code>&lt;=</code>，<code>&lt;</code>，<code>==</code>，<code>！=</code>，<code>&gt; =</code>，<code>&gt;</code>(结果为<code>bool</code>)</li>
+<li>位运算符：<code>＆</code>，<code>|</code>，<code>^</code>(按位异或)，<code>~</code>(按位否)</li>
+<li>算术运算符：<code>+</code>, <code>-</code>, unary <code>-</code>, unary <code>+</code>, <code>*</code>, <code>/</code>, <code>%</code>(余), <code>**</code>(幂), <code>&lt;&lt;</code>(左移), <code>&gt;&gt;</code>(右移)</li>
+</ul>
+<p>除法总是截断(它只是编译为EVM的<code>DIV</code>操作码)，但如果两个操作符都是<a href="https://solidity.readthedocs.io/en/develop/types.html#rational-literals">文字</a>(或文字表达式)，它就不会截断。</p>
+<p>用零和模数除零引发运行时异常。
+移位操作的结果是左操作数的类型。
+表达式<code>x &lt;&lt; y</code>相当于<code>x * 2 ** y</code>，<code>x &gt;&gt; y</code>相当于<code>x / 2 ** y</code>。
+这意味着移动负数符号会延长。
+按负数移动会引发运行时异常。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>由有符号整数类型的负值移位产生的结果与其他编程语言产生的结果不同
+在Solidity中，将右侧的地图向右移动，因此移位后的负值将舍入为零(截断)。
+在其他编程语言中，负值的右移就像四舍五入的分割(朝向负无穷)。</p>
+</div>
+<h3 id="_5">定点号<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>固定点数量尚未完全支持。
+它们可以被声明，但不能被分配给或从中分配。</p>
+</div>
+<p><code>fixed</code> / <code>ufixed</code>: 各种大小的有符号和无符号定点数。
+关键词<code>ufixedMxN</code>和<code>fixedMxN</code>，其中<code>M</code>表示类型所占的位数，<code>N</code>表示可用的小数点数。
+<code>M</code>必须可以被8整除并且从8到256位。
+<code>N</code>必须在0到80之间，包括0和80。
+<code>ufixed</code>和<code>fixed</code>分别是<code>ufixed128x19</code>和<code>fixed128x19</code>的别名。</p>
+<p>运算符:</p>
+<ul>
+<li>比较：<code>&lt;=</code>，<code>&lt;</code>，<code>==</code>，<code>！=</code>，<code>&gt; =</code>，<code>&gt;</code>(结果<code>bool</code>)</li>
+<li>算术运算符：<code>+</code>，<code>-</code>，unary <code>-</code>，unary <code>+</code>，<code>*</code>，<code>/</code>，<code>％</code>(余数)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>浮点数(在许多语言中浮点和双精度，更准确地说IEEE 754数字)和定点数之间的主要区别在于整数和小数部分(小数点后的部分)使用的位数在前者中是灵活的，而在后者中严格定义
+一般来说，在浮点数中，几乎整个空间都用来表示数字，而只有少量的数字定义了小数点的位置。</p>
+</div>
+<h3 id="_6">地址<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><code>address</code>: 保存20个字节的值(以太坊地址的大小)。地址类型也有成员，并作为所有合约的基础。</p>
+<p>运算符:</p>
+<ul>
+<li><code>&lt;=</code>, <code>&lt;</code>, <code>==</code>, <code>!=</code>, <code>&gt;=</code> 和 <code>&gt;</code></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>从版本0.5.0开始，合约不会从地址类型派生，但仍可以明确地转换为地址。</p>
+</div>
+<h4 id="_7">地址成员<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>balance</code> 和 <code>transfer</code></li>
+</ul>
+<p>有关快速参考，请参阅<a href="https://solidity.readthedocs.io/en/develop/units-and-global-variables.html#address-related">地址相关</a>。</p>
+<p>可以使用属性<code>balance</code>查询地址的余额，并使用<code>transfer</code>函数将以太网(以wei为单位)发送到一个地址：</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">address</span> <span class="nx">x</span> <span class="o">=</span> <span class="mh">0x123</span><span class="p">;</span>
+    <span class="nx">address</span> <span class="nx">myAddress</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">balance</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="nx">myAddress</span><span class="p">.</span><span class="nx">balance</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="nx">x</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果<code>x</code>是合约地址，则其代码(更具体地说：它的后备功能，如果存在的话)将与<code>transfer</code>调用(这是EVM的一项功能，无法阻止)一起执行。
+如果运行时燃料耗尽或以任何方式失败, 以太汇款将被退回，目前的合约将停止，并抛出异常.</p>
+</div>
+<ul>
+<li><code>send</code></li>
+</ul>
+<p>Send是<code>transfer</code>的低级副本。
+如果执行失败，当前合约不会停止并产生异常，但是<code>send</code>将返回<code>false</code>。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>使用<code>send</code>时存在一些危险：如果调用堆栈深度为1024(这可以始终由调用者强制)，则传输失败，如果收件人燃料耗尽，则传输也会失败。
+所以为了安全的以太传输， 总是检查<code>send</code>的返回值， 使用<code>transfer</code>更好: 使用收款人提款的模式.</p>
+</div>
+<ul>
+<li><code>call</code>, <code>callcode</code> and <code>delegatecall</code></li>
+</ul>
+<p>此外, 与不符合ABI的合约进行接口, 提供了函数<code>call</code>，它可以接受任意类型的任意数量的参数。
+这些参数被填充到32个字节并连接。
+一个例外是第一个参数被编码为正好四个字节的情况。
+在这种情况下，它没有被填充以允许在这里使用功能签名。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">address</span> <span class="nx">nameReg</span> <span class="o">=</span> <span class="mh">0x72ba7d8e73fe8eb666ea66babc8116a41bfb10e2</span><span class="p">;</span>
+    <span class="nx">nameReg</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;register&quot;</span><span class="p">,</span> <span class="s2">&quot;MyName&quot;</span><span class="p">);</span>
+    <span class="nx">nameReg</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">bytes4</span><span class="p">(</span><span class="nx">keccak256</span><span class="p">(</span><span class="s2">&quot;fun(uint256)&quot;</span><span class="p">)),</span> <span class="nx">a</span><span class="p">);</span>
+</pre></div>
+
+<p><code>call</code>返回一个布尔值，指示被调用的函数是否终止(<code>true</code>)或导致EVM异常(<code>false</code>)。
+无法访问返回的实际数据(为此，我们需要事先知道编码和大小).</p>
+<p>可以用<code>.gas()</code>修饰符调整供给的气体：</p>
+<div class="codehilite"><pre><span></span>namReg.call.gas(1000000)(&quot;register&quot;, &quot;MyName&quot;);
+</pre></div>
+
+
+<p>同样，所提供的以太值也可以被控制：</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">nameReg</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">1</span> <span class="nx">ether</span><span class="p">)(</span><span class="s2">&quot;register&quot;</span><span class="p">,</span> <span class="s2">&quot;MyName&quot;</span><span class="p">);</span>
+</pre></div>
+
+<p>最后，这些修饰符可以结合使用。
+他们的顺序无关紧要：</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">nameReg</span><span class="p">.</span><span class="nx">call</span><span class="p">.</span><span class="nx">gas</span><span class="p">(</span><span class="mi">1000000</span><span class="p">).</span><span class="nx">value</span><span class="p">(</span><span class="mi">1</span> <span class="nx">ether</span><span class="p">)(</span><span class="s2">&quot;register&quot;</span><span class="p">,</span> <span class="s2">&quot;MyName&quot;</span><span class="p">);</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在重载函数上使用<code>gas</code>或<code>value</code>修饰符还不可能。</p>
+<p>解决方法是引入<code>gas</code>和<code>value</code>的特例，并重新检查它们是否存在于重载分辨率点。</p>
+</div>
+<p>以类似的方式，可以使用函数<code>delegatecall</code>：不同之处在于只使用给定地址的代码，所有其他方面(存储，余额...)取自当前合约。
+<code>delegatecall</code>的目的是使用存储在另一个合约中的库代码。
+用户必须确保两个合约中的存储布局适合使用委托呼叫。
+在家园之前，只有一个名为<code>callcode</code>的有限变体可用，它不能访问原始的<code>msg.sender</code>和<code>msg.value</code>值。</p>
+<p>所有三个函数<code>call</code>，<code>delegatecall</code>和<code>callcode</code>都是非常低级的函数，只能作为<em>最后的手段</em>，因为它们会破坏Solidity的类型安全性。</p>
+<p><code>.gas()</code>选项可用于所有三种方法，而<code>.value()</code>选项不支持<code>delegatecall</code>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>所有合约都继承地址成员，所以可以使用<code>this.balance</code>查询当前合约的余额。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>callcode</code>的使用是不鼓励的，将来会被删除。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>所有这些功能都是低级功能，应小心使用。
+特别, 任何未知的合约可能是恶意的，如果你调用它, 您将控制权移交给该合约，而该合约又可以回调您的合约, 因此在呼叫返回时准备好更改状态变量.</p>
+</div>
+<h3 id="_8">固定大小的字节数组<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><code>bytes1</code>, <code>bytes2</code>, <code>bytes3</code>, ..., <code>bytes32</code>.
+<code>byte</code>是<code>bytes1</code>的别名。</p>
+<p>运算符:</p>
+<ul>
+<li>比较: <code>&lt;=</code>, <code>&lt;</code>, <code>==</code>, <code>!=</code>, <code>&gt;=</code>, <code>&gt;</code>(评估为 <code>bool</code>)</li>
+<li>位运算符: <code>&amp;</code>, <code>|</code>, <code>^</code>(按位异或), <code>~</code>(按位否), <code>&lt;&lt;</code>(左移), <code>&gt;&gt;</code>(右移)</li>
+<li>索引访问: 如果<code>x</code>的类型是<code>bytesI</code>，那么<code>0 &lt;= k &lt;I</code>的<code>x [k]</code>返回第k个字节(只读)。</li>
+</ul>
+<p>移位运算符使用任何整数类型作为右操作数(但会返回左操作数的类型)，这表示要移位的位数。
+按负数移动会导致运行时异常。</p>
+<p>成员:</p>
+<ul>
+<li><code>.length</code>产生字节数组的固定长度(只读)。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>可以使用一个字节数组作为<code>byte[]</code>，但是当传入调用时，它会浪费很多空间，每个元素占用31个字节。
+最好使用<code>bytes</code>。</p>
+</div>
+<h3 id="_9">动态大小的字节数组<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><code>bytes</code>: 动态大小的字节数组，请参见<a href="https://solidity.readthedocs.io/en/develop/types.html#arrays">阵列</a>。 不是一种值型！</p>
+<p><code>string</code>: 动态大小的UTF-8编码字符串，请参见<a href="https://solidity.readthedocs.io/en/develop/types.html#arrays">阵列</a>。 不是一种值型！</p>
+<p>根据经验，对任意长度的原始字节数据使用<code>bytes</code>，对任意长度的字符串(UTF-8)数据使用<code>string</code>。
+如果你可以限制长度到一定数量的字节，总是使用<code>bytes1</code>到<code>bytes32</code>中的一个，因为它们便宜得多。</p>
+<h3 id="address">地址文字<code>address</code><a class="headerlink" href="#address" title="Permanent link">&para;</a></h3>
+<p>通过地址校验和测试的十六进制文字, 例如<code>0xdCad3a6d3569DF655070DEd06cb7A1b2Ccd1D3AF</code>是<code>address</code>类型。
+长度在39到41位之间且未通过校验和测试的十六进制文字会产生警告，并被视为常规有理数字文字。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>混合大小写地址校验和格式在<a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md">EIP-55</a>中定义.</p>
+</div>
+<h3 id="_10">理性和整数文字<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>整数文字是由0-9范围内的一系列数字组成的。
+它们被解释为小数。
+例如，<code>69</code>意味着六十九个。
+Octal文字不存在于Solidity中，前导零是无效的。</p>
+<p>小数部分文字由一个<code>.</code>形成，一边至少有一个数字。
+例子包括<code>1.</code>，<code>.1</code>和<code>1.3</code>。</p>
+<p>科学记数法也支持，其中基数可以有分数，而指数则不可以。
+例子包括2e10，-2e10，2e-10，2.5e1。</p>
+<p>数字文字表达式保持任意精度，直到它们被转换为非文字类型(即通过将它们与非文字表达式一起使用)。
+这意味着计算不会溢出，并且分区不会在数字文字表达式中截断。</p>
+<p>例如，<code>(2 ** 800 + 1) -  2 ** 800</code>的结果是常量<code>1</code>(类型为<code>uint8</code>)，尽管中间结果甚至不适合机器字的大小。
+此外，<code>.5 * 8</code>产生整数<code>4</code>(尽管在它们之间使用了非整数)。</p>
+<p>只要操作数是整数，任何可以应用于整数的运算符也可以应用于数字文字表达式。
+如果两者中的任何一个都是小数，则位操作是不允许的，并且如果指数是分数的(因为这可能导致非有理数)，指数是不允许的。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>对于每个有理数，Solidity都有一个数字字面类型。
+整数文字和有理数字文字属于数字文字类型。
+此外，所有数字文字表达式(即仅包含数字文字和运算符的表达式)属于数字文字类型。
+因此，数字文字表达式<code>1 + 2</code>和<code>2 + 1</code>对于有理数3都属于相同的数字文字类型。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>用于在早期版本中截断的整数字面积的划分，但现在将转换为有理数，即<code>5/2</code>不等于<code>2</code>，而是等于<code>2.5</code>。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>数字文字表达式只要与非文字表达式一起使用，就会转换为非文字类型。
+尽管我们知道在下面的例子中赋值给<code>b</code>的表达式的值是一个整数，但部分表达式<code>2.5 + a</code>没有检查类型，所以代码不会编译</p>
+</div>
+<p>uint128 a = 1;
+uint128 b = 2.5 + a + 0.5;</p>
+<p>@nosy check here</p>
+<h3 id="_11">字符串文字<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>字符串文字用双引号或单引号("foo"或'bar')编写。
+它们并不意味着像C中那样跟随零; "foo"代表三个字节而不是四个。
+与整数文字一样，它们的类型可能会有所不同，但如果它们适合<code>字节</code>和<code>字符串</code>，它们可以隐式转换为<code>bytes1</code>，...，<code>bytes32</code>。</p>
+<p>字符串文字支持转义字符，如<code>n</code>，<code>xNN</code>和<code>uNNNN</code>。
+<code>xNN</code>接受一个十六进制值并插入相应的字节，而<code>uNNNN</code>接受一个Unicode代码点并插入一个UTF-8序列。</p>
+<h3 id="_12">十六进制文字<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>十六进制文字前缀为关键字<code>hex</code>，并用双引号或单引号(<code>hex</code>001122FF``)括起来。
+它们的内容必须是十六进制字符串，它们的值将是这些值的二进制表示。</p>
+<p>Hexademical Literals的行为与String Literals类似，并具有相同的可转换性限制。</p>
+<h3 id="_13">枚举<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>枚举是在Solidity中创建用户定义类型的一种方法。
+它们可以显式转换为所有整数类型，但是不允许隐式转换。
+显式转换检查运行时的值范围，失败会导致异常。
+枚举需要至少一个成员。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.16</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">test</span> <span class="p">{</span>
+        <span class="kr">enum</span> <span class="nx">ActionChoices</span> <span class="p">{</span> <span class="nx">GoLeft</span><span class="p">,</span> <span class="nx">GoRight</span><span class="p">,</span> <span class="nx">GoStraight</span><span class="p">,</span> <span class="nx">SitStill</span> <span class="p">}</span>
+        <span class="nx">ActionChoices</span> <span class="nx">choice</span><span class="p">;</span>
+        <span class="nx">ActionChoices</span> <span class="nx">constant</span> <span class="nx">defaultChoice</span> <span class="o">=</span> <span class="nx">ActionChoices</span><span class="p">.</span><span class="nx">GoStraight</span><span class="p">;</span>
+
+        <span class="kd">function</span> <span class="nx">setGoStraight</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="nx">choice</span> <span class="o">=</span> <span class="nx">ActionChoices</span><span class="p">.</span><span class="nx">GoStraight</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Since enum types are not part of the ABI, the signature of &quot;getChoice&quot;</span>
+        <span class="c1">// will automatically be changed to &quot;getChoice() returns(uint8)&quot;</span>
+        <span class="c1">// for all matters external to Solidity.</span>
+        <span class="c1">// The integer type used is just</span>
+        <span class="c1">// large enough to hold all enum values, i.e. if you have more values,</span>
+        <span class="c1">// `uint16` will be used and so on.</span>
+        <span class="kd">function</span> <span class="nx">getChoice</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">ActionChoices</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">choice</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">getDefaultChoice</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">pure</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">uint</span><span class="p">(</span><span class="nx">defaultChoice</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<h3 id="_14">函数类型<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>函数类型是函数的类型。
+函数类型的变量可以从函数中分配，而函数类型的函数参数可以用于将函数传递给函数调用并从函数调用返回函数。
+函数类型有两种口味 -  <em>内部</em>和<em>外部</em>函数：</p>
+<p>内部函数只能在当前合约内(更具体地说，在当前代码单元内部，它还包含内部库函数和继承函数)内部调用，因为它们不能在当前合约的上下文之外执行。
+调用内部函数是通过跳转到其入口标签来实现的，就像在内部调用当前合约的函数一样。</p>
+<p>外部函数由一个地址和一个函数签名组成，它们可以通过外部函数调用传递并返回。</p>
+<p>函数类型的标注如下：</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">parameter</span> <span class="nx">types</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span><span class="nx">internal</span><span class="o">|</span><span class="nx">external</span><span class="p">}</span> <span class="p">[</span><span class="nx">pure</span><span class="o">|</span><span class="nx">constant</span><span class="o">|</span><span class="nx">view</span><span class="o">|</span><span class="nx">payable</span><span class="p">]</span> <span class="p">[</span><span class="nx">returns</span><span class="p">(</span><span class="o">&lt;</span><span class="k">return</span> <span class="nx">types</span><span class="o">&gt;</span><span class="p">)]</span>
+</pre></div>
+
+<p>与参数类型不同，返回类型不能为空 - 如果函数类型不返回任何内容，则必须省略整个<code>returns(&lt;返回类型&gt;)</code>部分。</p>
+<p>默认情况下，函数类型是内部的，所以<code>internal</code>关键字可以省略。
+相比之下，契约函数本身在默认情况下是公共的，只有当用作类型的名称时，默认是内部的。</p>
+<p>有两种方法可以访问当前合约中的函数：直接使用其名称，<code>f</code>或使用<code>this.f</code>。
+前者将产生内部功能，后者则具有外部功能。</p>
+<p>如果函数类型变量未初始化，调用它将导致异常。
+如果你在使用<code>delete</code>之后调用一个函数，也会发生同样的情况。</p>
+<p>如果外部函数类型在Solidity上下文之外使用，则它们被视为<code>函数</code>类型，它将地址和函数标识符一起编码成单个<code>bytes24</code>类型。</p>
+<p>请注意，当前合约的公共职能既可以用作内部函数，也可以用作外部函数。
+要使用<code>f</code>作为内部函数，只要使用<code>f</code>，如果你想使用它的外部形式，可以使用<code>this.f</code>。</p>
+<p>此外，公共(或外部)函数还有一个名为<code>selector</code>的特殊成员，它返回<a href="">ABI函数选择器<abi_function_selector></a>：</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.16</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">Selector</span> <span class="p">{</span>
+      <span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">bytes4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">f</span><span class="p">.</span><span class="nx">selector</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p>显示如何使用内部函数类型的示例：</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.16</span><span class="p">;</span>
+
+    <span class="nx">library</span> <span class="nx">ArrayUtils</span> <span class="p">{</span>
+      <span class="c1">// internal functions can be used in internal library functions because</span>
+      <span class="c1">// they will be part of the same code context</span>
+      <span class="kd">function</span> <span class="nx">map</span><span class="p">(</span><span class="nx">uint</span><span class="p">[]</span> <span class="nx">memory</span> <span class="nx">self</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="nx">pure</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="nx">f</span><span class="p">)</span>
+        <span class="nx">internal</span>
+        <span class="nx">pure</span>
+        <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">[]</span> <span class="nx">memory</span> <span class="nx">r</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="nx">r</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">uint</span><span class="p">[](</span><span class="nx">self</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">r</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">f</span><span class="p">(</span><span class="nx">self</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="kd">function</span> <span class="nx">reduce</span><span class="p">(</span>
+        <span class="nx">uint</span><span class="p">[]</span> <span class="nx">memory</span> <span class="nx">self</span><span class="p">,</span>
+        <span class="kd">function</span><span class="p">(</span><span class="nx">uint</span><span class="p">,</span> <span class="nx">uint</span><span class="p">)</span> <span class="nx">pure</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="nx">f</span>
+      <span class="p">)</span>
+        <span class="nx">internal</span>
+        <span class="nx">pure</span>
+        <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">r</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="nx">r</span> <span class="o">=</span> <span class="nx">self</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="k">for</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">r</span> <span class="o">=</span> <span class="nx">f</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="nx">self</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="kd">function</span> <span class="nx">range</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">length</span><span class="p">)</span> <span class="nx">internal</span> <span class="nx">pure</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">[]</span> <span class="nx">memory</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">r</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">uint</span><span class="p">[](</span><span class="nx">length</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">r</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">r</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">contract</span> <span class="nx">Pyramid</span> <span class="p">{</span>
+      <span class="nx">using</span> <span class="nx">ArrayUtils</span> <span class="k">for</span> <span class="o">*</span><span class="p">;</span>
+      <span class="kd">function</span> <span class="nx">pyramid</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">l</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">pure</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">ArrayUtils</span><span class="p">.</span><span class="nx">range</span><span class="p">(</span><span class="nx">l</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">square</span><span class="p">).</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">x</span><span class="p">)</span> <span class="nx">internal</span> <span class="nx">pure</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">y</span><span class="p">)</span> <span class="nx">internal</span> <span class="nx">pure</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p>另一个使用外部函数类型的例子：</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.11</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">Oracle</span> <span class="p">{</span>
+      <span class="nx">struct</span> <span class="nx">Request</span> <span class="p">{</span>
+        <span class="nx">bytes</span> <span class="nx">data</span><span class="p">;</span>
+        <span class="kd">function</span><span class="p">(</span><span class="nx">bytes</span> <span class="nx">memory</span><span class="p">)</span> <span class="nx">external</span> <span class="nx">callback</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nx">Request</span><span class="p">[]</span> <span class="nx">requests</span><span class="p">;</span>
+      <span class="nx">event</span> <span class="nx">NewRequest</span><span class="p">(</span><span class="nx">uint</span><span class="p">);</span>
+      <span class="kd">function</span> <span class="nx">query</span><span class="p">(</span><span class="nx">bytes</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">bytes</span> <span class="nx">memory</span><span class="p">)</span> <span class="nx">external</span> <span class="nx">callback</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="nx">requests</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">Request</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">callback</span><span class="p">));</span>
+        <span class="nx">NewRequest</span><span class="p">(</span><span class="nx">requests</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="kd">function</span> <span class="nx">reply</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">requestID</span><span class="p">,</span> <span class="nx">bytes</span> <span class="nx">response</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="c1">// Here goes the check that the reply comes from a trusted source</span>
+        <span class="nx">requests</span><span class="p">[</span><span class="nx">requestID</span><span class="p">].</span><span class="nx">callback</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">contract</span> <span class="nx">OracleUser</span> <span class="p">{</span>
+      <span class="nx">Oracle</span> <span class="nx">constant</span> <span class="nx">oracle</span> <span class="o">=</span> <span class="nx">Oracle</span><span class="p">(</span><span class="mh">0x1234567</span><span class="p">);</span> <span class="c1">// known contract</span>
+      <span class="kd">function</span> <span class="nx">buySomething</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">oracle</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;USD&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">oracleResponse</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="kd">function</span> <span class="nx">oracleResponse</span><span class="p">(</span><span class="nx">bytes</span> <span class="nx">response</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="nx">require</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span> <span class="o">==</span> <span class="nx">address</span><span class="p">(</span><span class="nx">oracle</span><span class="p">));</span>
+        <span class="c1">// Use the data</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lambda或内联函数已计划但尚未支持。</p>
+</div>
+<h2 id="_15">参考类型<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>复杂类型，即不总是适合256位的类型必须比我们已经看到的值类型更仔细地处理。
+由于复制它们可能非常昂贵，我们必须考虑是否要将它们存储在<strong>存储器</strong>(不是持久存储器)或<strong>存储</strong>(其中保存状态变量)中。</p>
+<h3 id="_16">数据位置<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>由于复制它们可能非常昂贵，我们必须考虑是否要将它们存储在<strong>存储器</strong>(不是持久存储器)或<strong>存储</strong>(其中保存状态变量)中。
+根据上下文，总是有一个默认值，但是可以通过在类型中附加<code>storage</code>或<code>memory</code>来覆盖它。
+函数参数(包括返回参数)的缺省值是<code>memory</code>，局部变量的默认值是<code>storage</code>，显然，状态变量的位置被强制为<code>storage</code>。</p>
+<p>还有第三个数据位置<code>calldata</code>，它是存储函数参数的不可修改的非持久性区域。
+外部函数的函数参数(而不是返回参数)被强制为<code>calldata</code>，其行为与<code>memory</code>类似。</p>
+<p>数据位置非常重要，因为它们改变了作业的行为方式：
+存储和内存之间的分配以及状态变量(甚至来自其他状态变量)之间的分配始终会创建一个独立副本。
+虽然本地存储变量的赋值只能指定一个引用，并且该引用始终指向状态变量，即使后者在此期间发生更改。
+另一方面，从内存存储引用类型到另一个内存存储引用类型的分配不会创建副本。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.0</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">C</span> <span class="p">{</span>
+        <span class="nx">uint</span><span class="p">[]</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">// the data location of x is storage</span>
+
+        <span class="c1">// the data location of memoryArray is memory</span>
+        <span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">uint</span><span class="p">[]</span> <span class="nx">memoryArray</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="nx">x</span> <span class="o">=</span> <span class="nx">memoryArray</span><span class="p">;</span> <span class="c1">// works, copies the whole array to storage</span>
+            <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">// works, assigns a pointer, data location of y is storage</span>
+            <span class="nx">y</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span> <span class="c1">// fine, returns the 8th element</span>
+            <span class="nx">y</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// fine, modifies x through y</span>
+            <span class="k">delete</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">// fine, clears the array, also modifies y</span>
+            <span class="c1">// The following does not work; it would need to create a new temporary /</span>
+            <span class="c1">// unnamed array in storage, but storage is &quot;statically&quot; allocated:</span>
+            <span class="c1">// y = memoryArray;</span>
+            <span class="c1">// This does not work either, since it would &quot;reset&quot; the pointer, but there</span>
+            <span class="c1">// is no sensible location it could point to.</span>
+            <span class="c1">// delete y;</span>
+            <span class="nx">g</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// calls g, handing over a reference to x</span>
+            <span class="nx">h</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="c1">// calls h and creates an independent, temporary copy in memory</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">g</span><span class="p">(</span><span class="nx">uint</span><span class="p">[]</span> <span class="nx">storage</span> <span class="nx">storageArray</span><span class="p">)</span> <span class="nx">internal</span> <span class="p">{}</span>
+        <span class="kd">function</span> <span class="nx">h</span><span class="p">(</span><span class="nx">uint</span><span class="p">[]</span> <span class="nx">memoryArray</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<h4 id="_17">概要<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p>强制数据位置：</p>
+<ul>
+<li>外部函数的参数(不返回)：calldata</li>
+<li>状态变量：存储</li>
+</ul>
+<p>默认数据位置：</p>
+<ul>
+<li>函数的参数(也返回)：内存</li>
+<li>所有其他本地变量：存储</li>
+</ul>
+<h3 id="_18">数组<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>数组可以有编译时固定的大小，也可以是动态的。
+对于存储阵列，元素类型可以是任意的(即其他数组，映射或结构)。
+对于内存数组，它不能是一个映射，如果它是一个公共可见函数的参数，则它必须是ABI类型。</p>
+<p>一个固定大小的数组<code>k</code>和元素类型<code>T</code>被写为<code>T [k]</code>，一个动态大小的数组作为<code>T []</code>。
+例如，一个由5个动态数组组成的<code>uint</code>数组就是<code>uint [] [5]</code>(注意与其他一些语言相比，该记号是反转的)。
+要访问第三个动态数组中的第二个uint，可以使用<code>x [2] [1]</code>(索引是基于零的，并且访问以与声明相反的方式工作，即<code>x [2]</code>刮掉一个级别,在右边的类型中)。</p>
+<p><code>bytes</code>和<code>string</code>类型的变量是特殊数组。
+<code>bytes</code>类似于<code>byte []</code>，但是它紧紧包装在calldata中。
+<code>string</code>等于<code>bytes</code>，但不允许长度或索引访问(现在)。</p>
+<p>所以<code>byte</code>应该总是比<code>byte []</code>更受欢迎，因为它比较便宜。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果你想访问字符串<code>s</code>的字节表示，可以使用<code>bytes(s).length</code> /<code>bytes(s)[7] =</code>x<code>;</code>。
+请记住，您正在访问UTF-8表示的低级字节，而不是单个字符！</p>
+</div>
+<p>可以将数组标记为<code>public</code>并使Solidity创建一个<a href="">getter <visibility-and-getters></a>。
+数字索引将成为getter的必需参数。</p>
+<h4 id="_19">分配内存数组<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>在内存中创建具有可变长度的数组可以使用<code>new</code>关键字完成。
+与存储阵列相反，通过赋予<code>.length</code>成员来调整内存数组的大小是不可能的。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.16</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">C</span> <span class="p">{</span>
+        <span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">len</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">pure</span> <span class="p">{</span>
+            <span class="nx">uint</span><span class="p">[]</span> <span class="nx">memory</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">uint</span><span class="p">[](</span><span class="mi">7</span><span class="p">);</span>
+            <span class="nx">bytes</span> <span class="nx">memory</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bytes</span><span class="p">(</span><span class="nx">len</span><span class="p">);</span>
+            <span class="c1">// 这里我们有a.length == 7和b.length == len</span>
+            <span class="nx">a</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<h4 id="_20">数组文字/行内数组<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p>数组文字是作为表达式写入的数组，并且不会立即分配给变量。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.16</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">C</span> <span class="p">{</span>
+        <span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">pure</span> <span class="p">{</span>
+            <span class="nx">g</span><span class="p">([</span><span class="nx">uint</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="kd">function</span> <span class="nx">g</span><span class="p">(</span><span class="nx">uint</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="nx">_data</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">pure</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p>数组文本的类型是固定大小的存储器数组，其基数类型是给定元素的常见类型。
+<code>[1,2,3]</code>的类型是<code>uint8 [3]内存</code>，因为这些常量中的每一个的类型都是<code>uint8</code>。
+因此，有必要将上例中的第一个元素转换为uint。
+请注意，目前固定大小的存储器阵列不能分配给动态大小的存储器阵列，即以下情况是不可能的：</p>
+<div class="codehilite"><pre><span></span>    <span class="c1">// 这不会编译。</span>
+    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.0</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">C</span> <span class="p">{</span>
+        <span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="c1">// 下一行创建类型错误，因为uint [3]内存不能转换为uint []内存。</span>
+            <span class="nx">uint</span><span class="p">[]</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="nx">uint</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p>计划在将来删除此限制，但由于数组在ABI中的传递方式，目前会产生一些复杂性。</p>
+<h4 id="_21">成员<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p><strong>length</strong>:</p>
+<p>数组有一个<code>长度</code>成员来保存其元素数量。
+动态数组可以通过改变<code>.length</code>成员在存储器中(不在内存中)调整大小。
+尝试访问当前长度以外的元素时，不会自动发生。
+存储器阵列的大小一旦被创建就是固定的(但是动态的，即它可以依赖于运行时参数)。</p>
+<p><strong>push</strong>:</p>
+<p>动态存储数组和<code>bytes</code>(而不是<code>string</code>)有一个叫做<code>push</code>的成员函数，可以用来追加数组末尾的元素。
+该函数返回新的长度。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>尚不可能在外部函数中使用数组的数组。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>由于EVM的限制，无法从外部函数调用返回动态内容。
+合约C {函数f()返回(uint []){...}}<code>中的函数</code>f`将返回从web3.js中调用的东西，但如果从Solidity调用则返回。</p>
+<p>现在唯一的解决方法是使用大型静态大小的数组。</p>
+</div>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.16</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">ArrayContract</span> <span class="p">{</span>
+        <span class="nx">uint</span><span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="mi">20</span><span class="p">]</span> <span class="nx">m_aLotOfIntegers</span><span class="p">;</span>
+        <span class="c1">// Note that the following is not a pair of dynamic arrays but a</span>
+        <span class="c1">// dynamic array of pairs(i.e. of fixed size arrays of length two).</span>
+        <span class="nx">bool</span><span class="p">[</span><span class="mi">2</span><span class="p">][]</span> <span class="nx">m_pairsOfFlags</span><span class="p">;</span>
+        <span class="c1">// newPairs is stored in memory - the default for function arguments</span>
+
+        <span class="kd">function</span> <span class="nx">setAllFlagPairs</span><span class="p">(</span><span class="nx">bool</span><span class="p">[</span><span class="mi">2</span><span class="p">][]</span> <span class="nx">newPairs</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="c1">// assignment to a storage array replaces the complete array</span>
+            <span class="nx">m_pairsOfFlags</span> <span class="o">=</span> <span class="nx">newPairs</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">setFlagPair</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">bool</span> <span class="nx">flagA</span><span class="p">,</span> <span class="nx">bool</span> <span class="nx">flagB</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="c1">// access to a non-existing index will throw an exception</span>
+            <span class="nx">m_pairsOfFlags</span><span class="p">[</span><span class="nx">index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">flagA</span><span class="p">;</span>
+            <span class="nx">m_pairsOfFlags</span><span class="p">[</span><span class="nx">index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">flagB</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">changeFlagArraySize</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">newSize</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="c1">// if the new size is smaller, removed array elements will be cleared</span>
+            <span class="nx">m_pairsOfFlags</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">newSize</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">clear</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="c1">// these clear the arrays completely</span>
+            <span class="k">delete</span> <span class="nx">m_pairsOfFlags</span><span class="p">;</span>
+            <span class="k">delete</span> <span class="nx">m_aLotOfIntegers</span><span class="p">;</span>
+            <span class="c1">// identical effect here</span>
+            <span class="nx">m_pairsOfFlags</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">bytes</span> <span class="nx">m_byteData</span><span class="p">;</span>
+
+        <span class="kd">function</span> <span class="nx">byteArrays</span><span class="p">(</span><span class="nx">bytes</span> <span class="nx">data</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="c1">// byte arrays(&quot;bytes&quot;) are different as they are stored without padding,</span>
+            <span class="c1">// but can be treated identical to &quot;uint8[]&quot;</span>
+            <span class="nx">m_byteData</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+            <span class="nx">m_byteData</span><span class="p">.</span><span class="nx">length</span> <span class="o">+=</span> <span class="mi">7</span><span class="p">;</span>
+            <span class="nx">m_byteData</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="kr">byte</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+            <span class="k">delete</span> <span class="nx">m_byteData</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">addFlag</span><span class="p">(</span><span class="nx">bool</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nx">flag</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">m_pairsOfFlags</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">flag</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">createMemoryArray</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">size</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">pure</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">bytes</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Dynamic memory arrays are created using `new`:</span>
+            <span class="nx">uint</span><span class="p">[</span><span class="mi">2</span><span class="p">][]</span> <span class="nx">memory</span> <span class="nx">arrayOfPairs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">uint</span><span class="p">[</span><span class="mi">2</span><span class="p">][](</span><span class="nx">size</span><span class="p">);</span>
+            <span class="c1">// Create a dynamic byte array:</span>
+            <span class="nx">bytes</span> <span class="nx">memory</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bytes</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+            <span class="k">for</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="kr">byte</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">b</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<h3 id="_22">结构<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>Solidity提供了一种以结构形式定义新类型的方法，如以下示例所示：</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.11</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">CrowdFunding</span> <span class="p">{</span>
+        <span class="c1">// Defines a new type with two fields.</span>
+        <span class="nx">struct</span> <span class="nx">Funder</span> <span class="p">{</span>
+            <span class="nx">address</span> <span class="nx">addr</span><span class="p">;</span>
+            <span class="nx">uint</span> <span class="nx">amount</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">struct</span> <span class="nx">Campaign</span> <span class="p">{</span>
+            <span class="nx">address</span> <span class="nx">beneficiary</span><span class="p">;</span>
+            <span class="nx">uint</span> <span class="nx">fundingGoal</span><span class="p">;</span>
+            <span class="nx">uint</span> <span class="nx">numFunders</span><span class="p">;</span>
+            <span class="nx">uint</span> <span class="nx">amount</span><span class="p">;</span>
+            <span class="nx">mapping</span><span class="p">(</span><span class="nx">uint</span> <span class="p">=&gt;</span> <span class="nx">Funder</span><span class="p">)</span> <span class="nx">funders</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">uint</span> <span class="nx">numCampaigns</span><span class="p">;</span>
+        <span class="nx">mapping</span><span class="p">(</span><span class="nx">uint</span> <span class="p">=&gt;</span> <span class="nx">Campaign</span><span class="p">)</span> <span class="nx">campaigns</span><span class="p">;</span>
+
+        <span class="kd">function</span> <span class="nx">newCampaign</span><span class="p">(</span><span class="nx">address</span> <span class="nx">beneficiary</span><span class="p">,</span> <span class="nx">uint</span> <span class="nx">goal</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">campaignID</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">campaignID</span> <span class="o">=</span> <span class="nx">numCampaigns</span><span class="o">++</span><span class="p">;</span> <span class="c1">// campaignID is return variable</span>
+            <span class="c1">// Creates new struct and saves in storage.We leave out the mapping type.</span>
+            <span class="nx">campaigns</span><span class="p">[</span><span class="nx">campaignID</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Campaign</span><span class="p">(</span><span class="nx">beneficiary</span><span class="p">,</span> <span class="nx">goal</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">contribute</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">campaignID</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">payable</span> <span class="p">{</span>
+            <span class="nx">Campaign</span> <span class="nx">storage</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">campaigns</span><span class="p">[</span><span class="nx">campaignID</span><span class="p">];</span>
+            <span class="c1">// Creates a new temporary memory struct, initialised with the given values</span>
+            <span class="c1">// and copies it over to storage.</span>
+            <span class="c1">// Note that you can also use Funder(msg.sender, msg.value) to initialise.</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">funders</span><span class="p">[</span><span class="nx">c</span><span class="p">.</span><span class="nx">numFunders</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Funder</span><span class="p">({</span><span class="nx">addr</span><span class="o">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">amount</span><span class="o">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">amount</span> <span class="o">+=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">checkGoalReached</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">campaignID</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">bool</span> <span class="nx">reached</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">Campaign</span> <span class="nx">storage</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">campaigns</span><span class="p">[</span><span class="nx">campaignID</span><span class="p">];</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">amount</span> <span class="o">&lt;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">fundingGoal</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="nx">uint</span> <span class="nx">amount</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">amount</span><span class="p">;</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">amount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="nx">c</span><span class="p">.</span><span class="nx">beneficiary</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="nx">amount</span><span class="p">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p>合约没有提供众筹合约的全部功能，但它包含了理解结构所必需的基本概念。
+结构类型可以用在映射和数组中，它们本身可以包含映射和数组。</p>
+<p>尽管结构本身可以是映射成员的值类型，但结构不可能包含它自己类型的成员。
+这个限制是必要的，因为结构的大小必须是有限的。</p>
+<p>请注意，在所有函数中，结构类型被分配给(缺省存储数据位置的)局部变量。
+这不会复制该结构，而只会存储一个引用，以便分配给本地变量的成员实际写入该状态。</p>
+<p>当然，你也可以直接访问结构体的成员，而不必将它分配给局部变量，就像<code>campaign [campaignID] .amount = 0</code>一样。</p>
+<p>映射</p>
+<p>映射类型被声明为<code>映射(_KeyType =&gt; _ValueType)</code>。
+这里<code>_KeyType</code>几乎可以是任何类型，除了映射，动态调整大小的数组，合约，枚举和结构。
+<code>_ValueType</code>实际上可以是任何类型，包括映射。</p>
+<p>映射可以看作是<a href="https://en.wikipedia.org/wiki/Hash_table">哈希表</a>，它们被虚拟初始化，这样每个可能的键都存在并映射到一个字节表示全为零的值：一个类型,<a href="">默认值&lt;默认值&gt;</a>。
+但是，相似性在此处结束：关键数据实际上并不存储在映射中，只有其用于查找值的<code>keccak256</code>哈希值。</p>
+<p>因此，映射没有长度或<code>设置</code>键或值的概念。</p>
+<p>映射只能用于状态变量(或作为内部函数中的存储引用类型)。</p>
+<p>可以将映射标记为public，并使Solidity创建一个<a href="">getter <visibility-and-getters></a>。
+<code>_KeyType</code>将成为getter的必需参数，它将返回<code>_ValueType</code>。</p>
+<p><code>_ValueType</code>也可以是一个映射。
+getter将递归地为每个<code>_KeyType</code>使用一个参数。</p>
+<div class="codehilite"><pre><span></span>    <span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.0</span><span class="p">;</span>
+
+    <span class="nx">contract</span> <span class="nx">MappingExample</span> <span class="p">{</span>
+        <span class="nx">mapping</span><span class="p">(</span><span class="nx">address</span> <span class="p">=&gt;</span> <span class="nx">uint</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">balances</span><span class="p">;</span>
+
+        <span class="kd">function</span> <span class="nx">update</span><span class="p">(</span><span class="nx">uint</span> <span class="nx">newBalance</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+            <span class="nx">balances</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">=</span> <span class="nx">newBalance</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">contract</span> <span class="nx">MappingUser</span> <span class="p">{</span>
+        <span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">MappingExample</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MappingExample</span><span class="p">();</span>
+            <span class="nx">m</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">m</span><span class="p">.</span><span class="nx">balances</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>映射不可迭代，但可以在其上实现数据结构。
+有关示例，请参见<a href="https://github.com/ethereum/dapp-bin/blob/master/library/iterable_mapping.sol">可迭代映射</a>.</p>
+</div>
+<h2 id="lvalues">涉及LValues的操作符<a class="headerlink" href="#lvalues" title="Permanent link">&para;</a></h2>
+<p>如果<code>a</code>是一个LValue(即一个变量或可以分配的东西)，则下列运算符可用作简写：</p>
+<p><code>a + = e</code>相当于<code>a = a + e</code>。
+相应地定义了运算符<code>-  =</code>，<code>* =</code>，<code>/ =</code>，<code>％=</code>，<code>| =</code>，<code>＆=</code>和<code>^ =</code>。
+<code>a ++</code>和<code>a  -</code>相当于<code>a + = 1</code> /<code>a  -  = 1</code>，但表达式本身仍然具有以前的a值。
+相反，<code>-  a</code>和<code>++ a</code>对<code>a</code>具有相同的效果，但在更改后返回值。</p>
+<h3 id="_23">删除<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p><code>delete a</code>将类型的初始值赋给<code>a</code>。
+即,对于整数，它相当于<code>a = 0</code>，但它也可以用于数组，它分配一个长度为零的动态数组或者一个长度相同的静态数组，并且所有元素都被重置。
+对于结构体，它分配一个所有成员重置的结构体。</p>
+<p><code>delete</code>对整个映射没有影响(因为映射的键可能是任意的并且通常是未知的)。
+因此，如果你删除一个结构体，它将重置所有不是映射的成员，并且还会映射到成员中，除非它们是映射关系。
+但是，可以删除个人密钥及其映射的内容。</p>
+<p>需要注意的是，<code>delete a</code>的确像<code>a</code>的赋值，即它将一个新对象存储在<code>a</code>中。</p>
+<div class="codehilite"><pre><span></span><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="o">^</span><span class="mf">0.4.0</span><span class="p">;</span>
+
+<span class="nx">contract</span> <span class="nx">DeleteExample</span> <span class="p">{</span>
+    <span class="nx">uint</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="nx">uint</span><span class="p">[]</span> <span class="nx">dataArray</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="nx">uint</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+        <span class="k">delete</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">// 将x设置为0，不影响数据</span>
+        <span class="k">delete</span> <span class="nx">data</span><span class="p">;</span> <span class="c1">// 将数据设置为0，不会影响仍保留副本的x</span>
+        <span class="nx">uint</span><span class="p">[]</span> <span class="nx">storage</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">dataArray</span><span class="p">;</span>
+        <span class="k">delete</span> <span class="nx">dataArray</span><span class="p">;</span>
+        <span class="c1">// 这将dataArray.length设置为零，</span>
+        <span class="c1">// 但是由于uint[]是一个复杂的对象，</span>
+        <span class="c1">// y也会受到影响，这是存储对象的别名</span>
+        <span class="c1">// 另一方面: &quot;delete y&quot; 无效,</span>
+        <span class="c1">// 因为引用存储对象的本地变量的分配只能由现有存储对象创建。</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="_24">基本类型之间的转换<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<h3 id="_25">隐式转换<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>如果运算符应用于不同的类型，编译器会尝试隐式地将其中一个操作数转换为另一个操作数的类型(对于赋值也是如此)。
+在一般情况下，值类型之间的隐式转换是可能的，如果它是有道理的语义和不丢失任何信息：<code>uint8</code>可以转换为<code>uint16</code>和<code>int128</code>到<code>int256</code>，但<code>int8</code>是无法转换为<code>,uint256</code>(因为<code>uint256</code>不能包含<code>-1</code>)。
+此外，无符号整数可以转换为相同或更大尺寸的字节，但反之亦然。
+任何可以转换为<code>uint160</code>的类型也可以转换为<code>address</code>。</p>
+<h3 id="_26">显式转换<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>如果编译器不允许隐式转换，但您知道自己在做什么，则有时可以使用显式类型转换。
+请注意，这可能会给你一些意想不到的行为，所以一定要测试以确保结果是你想要的！,拿下面的例子，你将一个负的<code>int8</code>转换为<code>uint</code>：</p>
+<div class="codehilite"><pre><span></span><span class="nx">int8</span> <span class="nx">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span><span class="p">;</span>
+<span class="nx">uint</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">uint</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+</pre></div>
+
+<p>在这个代码片段的末尾，<code>x</code>将具有值<code>0xfffff..fd</code>(64个十六进制字符)，在256位的二进制补码表示中为-3。</p>
+<p>如果某种类型明确转换为较小类型，则会切断较高位：</p>
+<div class="codehilite"><pre><span></span><span class="nx">uint32</span> <span class="nx">a</span> <span class="o">=</span> <span class="mh">0x12345678</span><span class="p">;</span>
+<span class="nx">uint16</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">uint16</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// b will be 0x5678 now</span>
+</pre></div>
+
+<h2 id="_27">类型扣除<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<p>为了方便起见，并不总是需要明确指定变量的类型，编译器会根据分配给变量的第一个表达式的类型自动推断它：</p>
+<div class="codehilite"><pre><span></span><span class="nx">uint24</span> <span class="nx">x</span> <span class="o">=</span> <span class="mh">0x123</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+</pre></div>
+
+<p>在这里，<code>y</code>的类型将是<code>uint24</code>。
+函数参数或返回参数不能使用<code>var</code>。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>这个类型只是从第一个赋值中推导出来的，所以下面的代码片段中的循环是无限的，因为<code>i</code>将具有<code>uint8</code>类型并且这个类型的最大值小于<code>2000</code>.<code>for(var i ,= 0; i &lt;2000; i ++){...}</code></p>
+</div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../structure-of-a-contract/" title="合约结构" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                合约结构
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../units-and-global-variables/" title="单位和全局可用变量" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                单位和全局可用变量
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            版权 &copy; 2018 -  wohugb.github.io
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.6cdc17f0.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              <script src="../assets/javascripts/lunr/lunr.zh.js"></script>
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

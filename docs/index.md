@@ -1,151 +1,91 @@
 # Solidity
 
-Solidity是实施智能合约的合同导向的高级语言。
-它受到C ++，Python和JavaScript的影响，旨在针对以太坊虚拟机（EVM）。
+Solidity是实施智能合约的合约导向的高级语言。
+它受到 `C ++`，`Python` 和 `JavaScript` 的影响，旨在针对以太坊虚拟机(EVM)。
 
-Solidity是静态类型的，支持继承，库和其他功能中复杂的用户定义类型。
+Solidity是静态类型的，支持继承，库和复杂的用户定义类型以及其他功能.
 
-正如你所看到的，可以创建投票，众筹，盲目拍卖，多重签名钱包等等的合约。
+正如你所看到的，可以创建投票，众筹，暗标，多重签名钱包等等的合约。
 
 !!! note
 
-    现在尝试使用Solidity的最好方法是使用[Remix][1] (可能需要一段时间才能加载，请耐心等待).
+    现在尝试使用Solidity的最好方法是使用[Remix][1] (加载比较慢，请耐心等待).
 
 !!! warning
 
     由于软件是由人类编写的，因此它可能存在缺陷。
-    因此，智能合约也应该遵循着名的软件开发最佳实践。
+    因此，智能合约也应该遵循著名的软件开发最佳实践。
     这包括代码审查，测试，审计和正确性证明。
     另请注意，用户有时比其作者对代码更有信心。
-    最后，区块链有自己的事情要注意，所以请看看[security_considerations][2]部分.
+    最后，区块链有自己的事情要注意，所以请看看[安全考虑][2]部分.
 
 ## 翻译
 
 本文档由社区志愿者翻译成多种语言，但英文版可作为参考。
 
-- [Spanish][3]
-- [Russian][4](相当过时)
+- [🇨🇳](https://wohugb.github.io/solidity-docs/)
+- [🇪🇸][3]
+- [🇷🇺][4](已过时)
+- [Solidity 官方文档中文版](http://wiki.jikexueyuan.com/project/solidity-zh/)
 
-## 有用的链接
+## 链接
 
-- [Ethereum][5]
+- [以太坊][5]
 - [更新日志][6]
-- [故事积压][7]
+- [故事需求列表][7]
 - [源代码][8]
-- [以太坊Stackexchange][9]
+- [以太坊堆栈交换][9]
 - [格子聊天][10]
 
-## 可用Solidity集成
+## 插件
 
-- [Remix][1]
-
-    带有集成编译器和Solidity运行时环境的基于浏览器的IDE，无需服务器端组件。
-
-- [IntelliJ IDEA插件][11]
-
-    IntelliJ IDEA的固体插件（以及所有其他JetBrains IDE）
-
-- [Visual Studio扩展][12]
-
-    适用于包含Solidity编译器的Microsoft Visual Studio的Solidity插件。
-
-- [SublimeText包 -  Solidity语言语法][13]
-
-    SublimeText编辑器的固体语法高亮显示。
-
-- [Etheratom][14]
-
-    Atom编辑器的插件，具有语法高亮显示，编译和运行时环境（后端节点和VM兼容）。
-
-- [Atom Solidity Linter][15]
-
-    Atom编辑器的插件，提供了Solidity linting。
-
-- [Atom Solium Linter][16]
-
-    使用Solium作为基础的可配置Solidom linter for Atom。
-
-- [Solium][17]
-
-    Linter识别并修复Solidity中的样式和安全问题。
-
-- [Solhint][18]
-
-    Solidity linter为智能合约验证提供安全性，风格指南和最佳实践规则。
-
-- [Visual Studio Code 扩展][19]
-
-    Microsoft Visual Studio Code 包含语法高亮和Solidity编译器的Solidity插件。
-
-- [Emacs Solidity][20]
-
-    Emacs编辑器的插件提供语法高亮和编译错误报告。
-
-- [Vim Solidity][21]
-
-    Vim编辑器的插件提供语法高亮显示。
-
-- [Vim Syntastic][22]
-
-    Vim编辑器的插件提供编译检查。
+- [Remix][1]: 基于浏览器的带有集成编译器和Solidity运行时环境的IDE，无需服务器端组件。
+- [IntelliJ IDEA插件][11]: IntelliJ IDEA的Solidity插件(以及所有其他JetBrains IDE)
+- [Visual Studio扩展][12]: 适用于包含Solidity编译器的Microsoft Visual Studio的Solidity插件。
+- [SublimeText包-Solidity语言语法][13]: SublimeText编辑器的Solidity语法高亮显示。
+- [Etheratom][14]: Atom编辑器的插件，具有语法高亮显示，编译和运行时环境(后端节点和VM兼容)。
+- [Atom Solidity Linter][15]: Atom编辑器的插件，提供了Solidity linting。
+- [Atom Solium Linter][16]: 使用Solium作为基础的可配置Solidom linter for Atom。
+- [Solium][17]: Linter识别并修复Solidity中的样式和安全问题。
+- [Solhint][18]: Solidity linter为智能合约验证提供安全性，风格指南和最佳实践规则。
+- [Visual Studio Code 扩展][19]: Microsoft Visual Studio Code 插件，包含语法高亮和Solidity编译器。
+- [Emacs Solidity][20]: Emacs编辑器的插件提供语法高亮和编译错误报告。
+- [Vim Solidity][21]: Vim编辑器的插件提供语法高亮显示。
+- [Vim Syntastic][22]: Vim编辑器的插件提供编译检查。
 
 停止更新:
 
-- [Mix IDE][23]
+- [Mix IDE][23]: 基于Qt的IDE用于设计，调试和测试可靠智能合约。
+- [Ethereum Studio][24]: 专门的Web IDE，还提供对完整以太坊环境的外壳访问。
 
-    基于Qt的IDE用于设计，调试和测试可靠智能合约。
+## 工具
 
-- [Ethereum Studio][24]
+- [Dapp][25]: 为Solidity构建工具，包管理器和部署助手。
+- [Solidity REPL][26]: 立即使用命令行Solidity控制台尝试Solidity。
+- [solgraph][27]: 可视化Solidity控制流程并突出显示潜在的安全漏洞。
+- [evmdis][28]: EVM反汇编程序对字节码执行静态分析，以提供比原始EVM操作更高级别的抽象。
+- [Doxity][29]: 用于Solidity的文档生成器。
 
-    专门的Web IDE，还提供对完整以太坊环境的外壳访问。
+## 解析器和语法
 
-## Solidity工具
-
-- [Dapp][25]
-
-    为Solidity构建工具，包管理器和部署助手。
-
-- [Solidity REPL][26]
-
-    立即使用命令行Solidity控制台尝试Solidity。
-
-- [solgraph][27]
-
-    可视化Solidity控制流程并突出显示潜在的安全漏洞。
-
-- [evmdis][28]
-
-    EVM反汇编程序对字节码执行静态分析，以提供比原始EVM操作更高级别的抽象。
-
-- [Doxity][29]
-
-    文档生成器用于Solidity。
-
-## 第三方固体解析器和语法
-
-- [solidity解析器][30]
-
-    适用于JavaScript的Solidity解析器
-
-- [ANTLR的固体语法4][31]
-
-    ANTLR 4解析器生成器的固体语法
+- [Solidity解析器][30]: 适用于JavaScript的Solidity解析器
+- [ANTLR4的Solidity语法][31]: ANTLR 4解析器生成器的Solidity语法
 
 ## 语言文档
 
-在接下来的几页中，我们将首先看到用Solidity编写的[简单智能合约][32]，然后是关于[blockchains][33]和[以太坊虚拟机] [34]的基础知识。
+在接下来的几页中，我们将首先看到用Solidity编写的[简单智能合约][32]，然后是关于[块链][33]和[以太坊虚拟机][34]的基础知识。
 
-下一节将通过给出有用的[示例契约][35]来解释Solidity的几个*特性*请记住，您总是可以在[浏览器][36]中尝试契约！
+下一节将通过给出有用的[合约示例][35]来解释Solidity的几个特性。请记住您可以随时在[浏览器][36]中试用合约！
 
 最后和最广泛的部分将深入介绍Solidity的各个方面。
 
-如果您仍然有疑问，可以尝试在[Ethereum Stackexchange][9]网站上搜索或询问，或者到我们的[格子频道][10]。
-始终欢迎改进Solidity或本文档的想法！
+如果您仍然有疑问，可以尝试在[以太坊StackExchange][9]网站上搜索或询问，或者到我们的[格子频道][10]。
+始终欢迎您提出改进Solidity或本文档的想法！
 
 ![Solidity logo](logo.svg)
 
 [1]: https://remix.ethereum.org/
-[2]:
+[2]: http://solidity-cn.readthedocs.io/zh/latest/security-considerations.html#security-considerations
 [3]: https://solidity-es.readthedocs.io
 [4]: https://github.com/ethereum/wiki/wiki/%5BRussian%5D-%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-Solidity
 [5]: https://ethereum.org
